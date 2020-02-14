@@ -1,0 +1,11 @@
+#import "../fragments/userGeneric.graphql"
+#import "../fragments/userFollow.graphql"
+#import "../fragments/userAmount.graphql"
+
+query fetchTopSponsors($amount: Int, $period: Int) {
+    fetchTopSponsors(amount: $amount, period: $period) {
+        ...userGeneric
+        ...userFollow
+        ...userAmount
+    }
+}

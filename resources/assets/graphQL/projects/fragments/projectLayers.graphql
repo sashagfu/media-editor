@@ -1,0 +1,7 @@
+fragment projectLayers on Project {
+    layers {
+        id
+        height
+        volume
+    }
+}

@@ -1,0 +1,8 @@
+fragment playlistGeneric on Playlist {
+  id,
+  uuid,
+  authorId,
+  name,
+  accessLevel,
+  createdAt,
+}

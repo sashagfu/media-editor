@@ -1,0 +1,7 @@
+#import "../fragments/messageGeneric.graphql"
+
+mutation deleteMessage($id: ID!) {
+    deleteMessage (id: $id) {
+        ...messageGeneric
+    }
+}

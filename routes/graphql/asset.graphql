@@ -1,0 +1,69 @@
+
+extend type Query @group(middleware: ["auth:api"]) {
+  fetchSavedAssets: [Asset]
+}
+
+extend type Subscription @group(middleware: ["auth:api"]) {
+  projectClipped(projectId: ID!): Asset
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  saveAsset(
+    projectId: Int!
+    assetType: String!
+  ): Asset @field(resolver: "App\\Http\\GraphQL\\Mutations\\AssetMutator@save")
+
+  deleteAsset(
+    id: ID!
+  ): Asset @field(resolver: "App\\Http\\GraphQL\\Mutations\\AssetMutator@delete")
+
+}
+
+type Asset {
+  id: ID
+  uuid: String
+  projectId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\AssetType@projectId")
+  project: Project
+  type: AssetType
+  version: Int
+  fileType: String
+  filePath: String @field(resolver: "App\\Http\\GraphQL\\Types\\AssetType@filePath")
+  thumbPath: String
+  spritePath: String
+  waveformData: String
+  time: Float
+  frames: Int
+  height: Int
+  width: Int
+  enableToSave: Boolean
+  credits: [User]
+}
+
+# Input types
+
+input AssetInput {
+  id: ID
+  uuid: String
+  projectId: ID
+  project: Project
+  type: AssetType
+  version: Int
+  fileType: String
+  filePath: String
+  thumbPath: String
+  spritePath: String
+  waveformData: String
+  time: Float
+  frames: Int
+  height: Int
+  width: Int
+  enableToSave: Boolean
+  credits: [UserInput]
+}
+
+enum AssetType {
+  AUDIO
+  VIDEO
+  FULL
+}

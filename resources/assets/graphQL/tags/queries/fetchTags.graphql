@@ -1,0 +1,7 @@
+#import "../fragments/tagGeneric.graphql"
+
+query fetchTags($term: String) {
+    fetchTags(term: $term) {
+        ...tagGeneric
+    }
+}

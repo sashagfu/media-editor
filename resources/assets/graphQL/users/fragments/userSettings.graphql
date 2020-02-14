@@ -1,0 +1,8 @@
+fragment userSettings on User {
+    settings {
+        privacy {
+            showSponsorship
+            showTopSponsors
+        }
+    }
+}

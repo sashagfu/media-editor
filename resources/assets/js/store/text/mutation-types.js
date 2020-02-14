@@ -1,0 +1,4 @@
+export const SET_EDITING_TEXT = 'SET_EDITING_TEXT';
+export const ADD_TEXT = 'ADD_TEXT';
+export const SET_EDITING_ID = 'SET_EDITING_ID';
+export const SET_TEXT_PROPERTY = 'SET_TEXT_PROPERTY';

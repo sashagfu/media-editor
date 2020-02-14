@@ -1,0 +1,14 @@
+#import "./userGeneric.graphql"
+
+fragment userFollow on User {
+    followers {
+        ...userGeneric
+    }
+    following {
+        ...userGeneric
+    }
+    isFollowing
+    canBeFollowed
+    totalFollowers
+    totalFollowing
+}

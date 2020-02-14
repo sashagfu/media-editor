@@ -1,0 +1,30 @@
+@import './variables'
+
+.me-tl-layer {
+  // $b: &;
+  backface-visibility: hidden;
+  background-color: $white;
+  border-bottom: ($me-timeline-layer-bottom-border-width)px solid $border;
+  height: ($me-timeline-layer-height)px;
+  position: relative;
+  transform-style: flat;
+  transition: height .3s;
+  width: 100%;
+
+  &__droppable {
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+  }
+
+  &--height {
+    &--high {
+      height: ($me-timeline-layer-height--high)px;
+    }
+  }
+
+  .react-draggable {
+    backface-visibility: hidden;
+    transform-style: flat;
+  }
+}

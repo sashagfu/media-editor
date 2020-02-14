@@ -1,0 +1,10 @@
+fragment slideGeneric on Slide {
+    id
+    uuid
+    name
+    fileType
+    canvasSize {
+        width
+        height
+    }
+}

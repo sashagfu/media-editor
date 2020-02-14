@@ -1,0 +1,41 @@
+* {
+  box-sizing border-box
+}
+
+a {
+  text-decoration none
+}
+
+.box {
+  border 1px solid $border
+  border-radius $radius
+  background-color $white
+  &:not(:last-child) {
+    margin-bottom 1.5rem
+  }
+}
+
+ //modal
+.modal-background {
+  background-color rgba($black, .7)
+}
+
+.is-marginless {
+  margin 0 !important
+}
+
+.is-paddingless {
+  padding 0 !important
+}
+
+.left
+  fl-left()
+
+.fl-right
+  fl-right()
+
+.between
+  fl-between()
+
+.center
+  fl-center()

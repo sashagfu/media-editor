@@ -1,0 +1,7 @@
+#import "../../tags/fragments/tagGeneric.graphql"
+
+fragment projectTags on Project {
+    tags {
+        ...tagGeneric
+    }
+}

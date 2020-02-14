@@ -1,0 +1,53 @@
+me-item-transform {
+  color: $white-bis;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  &__title {
+    color: $white-bis;
+    padding: 5px;
+    text-transform: capitalize;
+    width: 100px;
+  }
+  &__func {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    padding: 5px;
+  }
+  &__func-item {
+    margin-bottom: 0;
+    & + & {
+      margin-left: 5px;
+    }
+  }
+  &__reset {
+    fl-center();
+    color: $white-bis;
+    padding: 5px;
+    width: 50px;
+  }
+  &__slider {
+    fl-left();
+    flex: 1;
+    padding-right: 5px;
+  }
+  &__input {
+    width: 55px;
+    height: 2rem;
+    font-size: .85rem;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  &__mark {
+    font-size: .8rem;
+    line-height: 32px;
+    margin-left: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+    &--fw {
+      width: 33px;
+      text-align: right;
+    }
+  }
+}

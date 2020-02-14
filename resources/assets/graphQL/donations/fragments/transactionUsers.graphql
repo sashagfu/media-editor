@@ -1,0 +1,18 @@
+#import "../../users/fragments/userGeneric.graphql"
+#import "../../users/fragments/userDetails.graphql"
+#import "../../users/fragments/userFollow.graphql"
+
+fragment transactionUsers on Transaction {
+    payerId
+    payer {
+        ...userGeneric
+        ...userDetails
+        ...userFollow
+    }
+    payeeId
+    payee {
+        ...userGeneric
+        ...userDetails
+        ...userFollow
+    }
+}

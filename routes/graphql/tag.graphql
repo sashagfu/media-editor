@@ -1,0 +1,32 @@
+
+extend type Query @group(middleware: ["auth:api"]) {
+  fetchTags(term: String): [Tag]
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  createTag(
+    tag: TagInput
+  ): Tag @create(flatten: true)
+
+}
+
+type Tag {
+  id: ID
+  uuid: String
+  name: String
+  projects: [Project]
+  createdAt: DateTime
+  updateAt: DateTime
+}
+
+# Input types
+
+input TagInput {
+  id: ID
+  uuid: String
+  name: String
+  projects: [ProjectInput]
+  createdAt: DateTime
+  updateAt: DateTime
+}

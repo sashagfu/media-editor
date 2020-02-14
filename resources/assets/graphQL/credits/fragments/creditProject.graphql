@@ -1,0 +1,11 @@
+#import "../../projects/fragments/projectGeneric.graphql"
+#import "../../projects/fragments/projectAuthor.graphql"
+#import "../../projects/fragments/projectAssets.graphql"
+
+fragment creditProject on Credit {
+    project {
+        ...projectGeneric
+        ...projectAuthor
+        ...projectAssets
+    }
+}

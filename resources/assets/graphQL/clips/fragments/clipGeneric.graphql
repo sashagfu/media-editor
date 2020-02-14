@@ -1,0 +1,8 @@
+fragment clipGeneric on Asset {
+    id,
+    projectId,
+    type,
+    version,
+    fileType,
+    uuid
+}

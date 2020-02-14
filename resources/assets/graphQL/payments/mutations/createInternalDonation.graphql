@@ -1,0 +1,17 @@
+#import "../../responses/fragments/responseGeneric.graphql"
+
+mutation createInternalDonation(
+    $payerId: ID!
+    $payeeId: ID!
+    $amount: Float!
+    $verify: String
+) {
+    createInternalDonation(
+        payerId: $payerId,
+        payeeId: $payeeId,
+        amount: $amount,
+        verify: $verify,
+    ) {
+        ...responseGeneric
+    }
+}

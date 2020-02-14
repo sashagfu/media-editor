@@ -1,0 +1,116 @@
+@import './variables'
+
+.me-tl-layer-item {
+  &__container {
+    backface-visibility: hidden;
+    background-color: $border;
+    border: ($me-timeline-layer-item-border-width)px solid $grey-light;
+    min-height: ($me-timeline-layer-item-height)px;
+    transform-style: flat;
+    transition: height .3s;
+    z-index: 100;
+    &.selected {
+      border-color: $primary;
+    }
+
+    &--cutting {
+      opacity: .8;
+    }
+  }
+
+  &.selected &__container {
+    border-color: $primary;
+  }
+
+  &__thumb-wrapper {
+    border: ($me-timeline-layer-item-padding)px solid $border;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__actions {
+    display: none !important;
+    left: 0;
+    position: absolute;
+    top: -30px;
+
+    .selected & {
+      display: block !important;
+    }
+  }
+
+  &__thumb {
+    cursor: $me-timeline-move-cursor;
+    &--split {
+      cursor: $me-timeline-split-cursor;
+    }
+  }
+
+  &__cut-part {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin-left: -($me-timeline-layer-item-frame-width)px; // 0;
+    border-left: ($me-timeline-layer-item-frame-width)px solid $warning;
+    background-color: rgba($black, .5);
+  }
+
+  &--bottom &__draggable {
+    bottom: 0;
+  }
+
+  .ui-resizable {
+    &-handle {
+      border: 2px solid $grey;
+      cursor: col-resize;
+      display: none !important;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 6px;
+    }
+    &-w {
+      border-right: none;
+      left: 0;
+    }
+    &-e {
+      border-left: none;
+      right: 0;
+    }
+  }
+
+  &.selected:not(.dragging) {
+    .ui-resizable-handle {
+      display: block !important;
+    }
+  }
+
+
+
+  .dragging-error &,
+  .ui-draggable-error & {
+    &__container,
+    &__thumb-wrapper {
+      border-color: $danger;
+    }
+  }
+
+  .dragging-success &,
+  .ui-draggable-success & {
+    &__container,
+    &__thumb-wrapper {
+      border-color: $green;
+    }
+  }
+
+  .dragging-warning &,
+  .ui-draggable-warning & {
+    &__container,
+    &__thumb-wrapper {
+      border-color: $warning;
+    }
+  }
+}

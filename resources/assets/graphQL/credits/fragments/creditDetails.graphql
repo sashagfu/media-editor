@@ -1,0 +1,22 @@
+#import "../../users/fragments/userGeneric.graphql"
+#import "../../projects/fragments/projectGeneric.graphql"
+#import "../../projects/fragments/projectAuthor.graphql"
+#import "../../projects/fragments/projectAssets.graphql"
+
+fragment creditDetails on Credit {
+    details {
+        to
+        from
+        type
+        percentages
+        project {
+            ...projectGeneric
+            ...projectAuthor
+            ...projectAssets
+        }
+        author {
+            ...userGeneric
+        }
+        deprecated
+    }
+}

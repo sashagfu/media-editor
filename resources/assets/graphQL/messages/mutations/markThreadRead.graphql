@@ -1,0 +1,7 @@
+#import "../fragments/threadGeneric.graphql"
+
+mutation markThreadRead($threadId: ID!, $userId: ID) {
+    markThreadRead (threadId: $threadId) {
+        ...threadGeneric
+    }
+}

@@ -1,0 +1,7 @@
+#import "../fragments/threadGeneric.graphql"
+
+mutation deleteParticipants($threadId: ID!, $ids: [ID]!, $userId: ID) {
+    deleteParticipants (threadId: $threadId, ids: $ids) {
+        ...threadGeneric
+    }
+}

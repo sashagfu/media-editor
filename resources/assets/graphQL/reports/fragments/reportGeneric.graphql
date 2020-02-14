@@ -1,0 +1,8 @@
+fragment reportGeneric on Report {
+  id
+  uuid
+  description
+  reportableId
+  reportableType
+  reasons
+}

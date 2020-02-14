@@ -1,0 +1,104 @@
+
+extend type Query @group(middleware: ["auth:api"]) {
+  fetchIncomingDonations(userId: ID!, status: Int): [Transaction]
+  fetchOutcomingDonations(userId: ID!, status: Int): [Transaction]
+  fetchIncomingDonationsHistory: [User]
+  fetchOutcomingDonationsHistory: [User]
+
+#  TRANSACTIONS
+  fetchTransactions(range: TimeRangeInput): [Transaction]
+}
+
+extend type Subscription @group(middleware: ["auth:api"]) {
+
+  donationCreated(payeeId: ID!): Transaction
+  donationAccepted(payerId: ID!): Transaction
+  donationDeclined(payerId: ID!): Transaction
+  donationExpired(payeeId: ID!): Transaction
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  createInternalDonation(
+    payerId: ID!
+    payeeId: ID!
+    amount: Float!
+    verify: String
+  ): Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\PaymentMutator@createInternalDonation")
+
+  acceptDonation(
+    id: ID!
+  ): Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\PaymentMutator@acceptDonation")
+
+  declineDonation(
+    id: ID!
+  ): Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\PaymentMutator@declineDonation")
+
+  acceptAllDonations:
+  Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\PaymentMutator@acceptAllDonations")
+
+  declineAllDonations:
+  Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\PaymentMutator@declineAllDonations")
+
+  toggleAutoAcceptDonation(
+    userId: ID!
+  ): Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\PaymentMutator@toggleAutoAcceptDonation")
+
+  toggleAutoDeclineDonation(
+    userId: ID!
+  ): Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\PaymentMutator@toggleAutoDeclineDonation")
+
+  createTopUp(
+    amount: Float!
+  ): Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\PaymentMutator@createTopUp")
+
+}
+
+type Transaction {
+  id: ID
+  uuid: String
+  payerId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\TransactionType@payerId")
+  payer: User
+  payeeId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\TransactionType@payeeId")
+  payee: User
+  type: String
+  amount: Float
+  transactionData: TransactionData
+  status: Int
+  createdAt: DateTime @field(resolver: "App\\Http\\GraphQL\\Types\\TransactionType@createdAt")
+  updatedAt: DateTime @field(resolver: "App\\Http\\GraphQL\\Types\\TransactionType@updatedAt")
+}
+
+type TransactionData {
+  token: String
+  payerId: String
+  paymentId: String
+}
+
+# Input types
+
+input TransactionInput {
+  id: ID
+  uuid: String
+  payerId: ID
+  payer: User
+  payeeId: ID
+  payee: User
+  type: String
+  amount: Float
+  transactionData: TransactionDataInput
+  status: Int
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input TransactionDataInput {
+  token: String
+  payerId: String
+  paymentId: String
+}
+
+input TimeRangeInput {
+  from: DateTime,
+  to: DateTime,
+}

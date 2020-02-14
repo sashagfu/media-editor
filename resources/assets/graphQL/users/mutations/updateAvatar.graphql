@@ -1,0 +1,7 @@
+#import "../fragments/userGeneric.graphql"
+
+mutation updateAvatar($url: String) {
+    updateAvatar(url: $url) {
+        ...userGeneric
+    }
+}

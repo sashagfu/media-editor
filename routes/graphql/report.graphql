@@ -1,0 +1,27 @@
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  createReport(
+    report: ReportInput!
+  ): Report @field(resolver: "App\\Http\\GraphQL\\Mutations\\ReportMutator@createReport")
+
+}
+
+type Report {
+  id: ID
+  uuid: String
+  description: String
+  reporter: User
+  reportableId: ID
+  reportableType: String
+  reasons: [Int]
+}
+
+# Input types
+
+input ReportInput {
+  description: String
+  reportableId: ID
+  reportableType: String
+  reasons: [Int]
+}

@@ -1,0 +1,33 @@
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  deleteAudio(
+    id: ID!
+    projectId: ID!
+  ): Audio @field(resolver: "App\\Http\\GraphQL\\Mutations\\AudioMutator@delete")
+
+}
+
+type Audio {
+  id: ID
+  uuid: String
+  name: String
+  projectId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\AudioType@projectId")
+  waveformData: String @field(resolver: "App\\Http\\GraphQL\\Types\\AudioType@waveformData")
+  filePath: String @field(resolver: "App\\Http\\GraphQL\\Types\\AudioType@filePath")
+  time: Float
+  fileType: String @field(resolver: "App\\Http\\GraphQL\\Types\\AudioType@fileType")
+}
+
+# Input types
+
+input AudioInput {
+  id: ID
+  uuid: String
+  name: String
+  projectId: ID
+  waveformData: String
+  filePath: String
+  time: Float
+  fileType: String
+}

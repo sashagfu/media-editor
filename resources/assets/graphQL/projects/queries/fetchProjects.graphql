@@ -1,0 +1,21 @@
+#import "../fragments/projectAssets.graphql"
+#import "../fragments/projectAuthor.graphql"
+#import "../fragments/projectComments.graphql"
+#import "../fragments/projectDetails.graphql"
+#import "../fragments/projectGeneric.graphql"
+#import "../fragments/projectStatus.graphql"
+#import "../fragments/projectTags.graphql"
+#import "../fragments/projectLikes.graphql"
+
+query fetchProjects($userId: ID, $term: String, $tag: TagInput, $status: String) {
+    fetchProjects(userId: $userId, term: $term, tag: $tag, status: $status) {
+        ...projectAssets
+        ...projectAuthor
+        ...projectComments
+        ...projectDetails
+        ...projectGeneric
+        ...projectStatus
+        ...projectTags
+        ...projectLikes
+    }
+}

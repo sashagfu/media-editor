@@ -1,0 +1,7 @@
+fragment transactionData on Transaction {
+    transactionData {
+        token
+        payerId
+        paymentId
+    }
+}

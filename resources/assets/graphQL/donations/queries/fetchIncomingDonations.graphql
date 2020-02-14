@@ -1,0 +1,12 @@
+#import "../fragments/transactionGeneric.graphql"
+#import "../fragments/transactionUsers.graphql"
+#import "../fragments/transactionData.graphql"
+
+
+query fetchIncomingDonations($userId: ID!, $status: Int) {
+    fetchIncomingDonations(userId: $userId, status: $status) {
+        ...transactionGeneric
+        ...transactionUsers
+        ...transactionData
+    }
+}

@@ -1,0 +1,38 @@
+@import './variables'
+
+.me-tl-ruler-cursor {
+  background-color: $grey-middle;
+  color: $white-bis;
+  cursor: ew-resize;
+  height: 1000px;
+  margin-left: -1px;
+  width: ($me-timeline-ruler-cursor-width)px;
+  z-index: 101;
+  &__head {
+    background-color: $grey-middle;
+    border-radius: 0 0 3px 3px;
+    height: 32px;
+    left: -35px;
+    position: relative;
+    width: 70px;
+  }
+  &__split {
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    right: 3px;
+    top: 2px;
+    transition: all .3s;
+    &:hover {
+      opacity: .8;
+    }
+  }
+  &__time {
+    fnt($text-invert, 12px, $weight-semibold, center);
+    bottom: 2px;
+    line-height: 1;
+    position: absolute;
+    width: 100%;
+  }
+
+}

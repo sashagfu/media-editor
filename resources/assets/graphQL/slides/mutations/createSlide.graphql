@@ -1,0 +1,7 @@
+#import "../fragments/slideGeneric.graphql"
+
+mutation createSlide($projectId: ID!, $slide: SlideInput!) {
+    createSlide(projectId: $projectId, slide: $slide) {
+        ...slideGeneric
+    }
+}

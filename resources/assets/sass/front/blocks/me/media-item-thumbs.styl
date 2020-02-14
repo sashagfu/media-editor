@@ -1,0 +1,62 @@
+@import './variables'
+
+.me-media-item-thumbs {
+  &__thumbs {
+    background-color: $grey-lighter;
+    background-repeat: no-repeat;
+    background-size: 89px;
+    padding: 4px;
+    height: ($me-timeline-layer-item-thumb-height)px;
+  }
+
+  &__waveform {
+    transition: all .3s;
+    height: 0;
+    .me-tl-layer--height--high & {
+      padding-top: ($me-timeline-layer-item-waveform-padding-top)px;
+      height: ($me-timeline-layer-item-height)px;
+    }
+  }
+
+  &__container {
+    position: relative;
+
+    &__waveform-container {
+      .me-media-item-waveform {
+        position: absolute;
+        opacity: 0.3;
+        left: 0;
+        top: 0;
+        transition: opacity .2s;
+      }
+
+      &--show-waveform {
+        .me-media-item-waveform {
+          opacity: .85;
+        }
+      }
+    }
+  }
+
+  &__handler {
+    fnt($grey-lighter, .8rem, $weight-normal, center);
+    background-color: rgba($grey, .8);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    line-height: .5;
+    padding: 3px;
+    position: absolute;
+    z-index: 1;
+    &--thumbs {
+      &:hover + .me-media-item-waveform {
+        opacity: .3;
+      }
+    }
+    &--waveform {
+      &:hover + .me-media-item-waveform {
+        opacity: .85;
+      }
+    }
+  }
+}

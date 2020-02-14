@@ -1,0 +1,7 @@
+#import "../../responses/fragments/responseGeneric.graphql"
+
+mutation createTopUp($amount: Float!) {
+    createTopUp(amount: $amount) {
+        ...responseGeneric
+    }
+}

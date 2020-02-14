@@ -1,0 +1,29 @@
+#import "../fragments/projectAssets.graphql"
+#import "../fragments/projectAuthor.graphql"
+#import "../fragments/projectComments.graphql"
+#import "../fragments/projectDetails.graphql"
+#import "../fragments/projectGeneric.graphql"
+#import "../fragments/projectStatus.graphql"
+#import "../fragments/projectTags.graphql"
+#import "../fragments/projectLikes.graphql"
+#import "../../tags/fragments/tagGeneric.graphql"
+#import "../../tags/fragments/tagProjects.graphql"
+
+query searchProjects($term: String) {
+    searchProjects(term: $term) {
+        projects {
+            ...projectAssets
+            ...projectAuthor
+            ...projectComments
+            ...projectDetails
+            ...projectGeneric
+            ...projectStatus
+            ...projectTags
+            ...projectLikes
+        }
+        tags {
+            ...tagGeneric
+            ...tagProjects
+        }
+    }
+}

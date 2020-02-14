@@ -1,0 +1,26 @@
+#import "../../users/fragments/userGeneric.graphql"
+#import "../../users/fragments/userDetails.graphql"
+#import "../../projects/fragments/projectGeneric.graphql"
+#import "../../projects/fragments/projectAssets.graphql"
+
+fragment messageGeneric on Message {
+    id
+    threadId
+    userId
+    user {
+        ...userGeneric
+        ...userDetails
+    }
+    body
+    shareData {
+        shareType
+        shareId
+        shareUuid
+    }
+    project {
+        ...projectGeneric
+        ...projectAssets
+    }
+    createdAt
+    updatedAt
+}

@@ -1,0 +1,12 @@
+fragment imageGeneric on Image {
+    fileName
+    filePath
+    fileSize
+    fileType
+    height
+    id
+    uuid
+    width
+    projectId
+}
+

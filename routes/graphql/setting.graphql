@@ -1,0 +1,33 @@
+
+extend type Query @group(middleware: ["auth:api"]) {
+  fetchSettings: Settings
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+
+  updateUserSettings(
+    settings: SettingsInput
+  ): Settings @field(resolver: "App\\Http\\GraphQL\\Mutations\\UserMutator@updateUserSettings")
+
+}
+
+type Settings {
+  privacy: PrivacySettings @field(resolver: "App\\Http\\GraphQL\\Types\\SettingsType@privacy")
+}
+
+type PrivacySettings {
+  showSponsorship: Boolean
+  showTopSponsors: Boolean
+}
+
+# Input types
+
+input SettingsInput {
+  privacy: PrivacySettingsInput
+}
+
+input PrivacySettingsInput {
+  showSponsorship: Boolean
+  showTopSponsors: Boolean
+}

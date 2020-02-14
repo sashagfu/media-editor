@@ -1,0 +1,7 @@
+#import "../../responses/fragments/responseGeneric.graphql"
+
+mutation toggleAutoDeclineDonation($userId: ID!) {
+    toggleAutoDeclineDonation(userId: $userId) {
+        ...responseGeneric
+    }
+}

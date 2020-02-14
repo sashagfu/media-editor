@@ -1,0 +1,7 @@
+#import "../../responses/fragments/responseGeneric.graphql"
+
+mutation declineDonation($id: ID!) {
+    declineDonation(id: $id) {
+        ...responseGeneric
+    }
+}

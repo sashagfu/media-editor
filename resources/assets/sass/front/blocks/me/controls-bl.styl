@@ -1,0 +1,19 @@
+.me-player-controls {
+  &__time-left {
+    fnt($text-light, 12px, $weight-normal, left)
+  }
+  &__time-right {
+    fnt($text-light, 12px, $weight-normal, right)
+  }
+  &__button {
+    fl-center();
+    color $grey-light
+    cursor pointer
+    height 100%
+    transition all .3s
+    width 36px
+    &:hover {
+      color $grey-dark
+    }
+  }
+}

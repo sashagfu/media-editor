@@ -1,0 +1,52 @@
+extend type Query @group(middleware: ["auth:api"]) {
+  fetchPlaylists(userId: ID): [Playlist]
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  createPlaylist(
+    playlist: PlaylistInput
+  ): Playlist @field(resolver: "App\\Http\\GraphQL\\Mutations\\PlaylistMutator@create")
+
+  updatePlaylist(
+    playlist: PlaylistInput
+  ): Playlist @field(resolver: "App\\Http\\GraphQL\\Mutations\\PlaylistMutator@update")
+
+  deletePlaylist(
+    id: ID!
+  ): Playlist @delete
+
+  attachProjectToPlaylist(
+    projectId: ID!
+    playlists: [ID]
+  ): Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\PlaylistMutator@attachProject")
+
+  detachProjectFromPlaylist(
+    projectId: ID!
+    playlistId: ID!
+  ): Playlist @field(resolver: "App\\Http\\GraphQL\\Mutations\\PlaylistMutator@detachProject")
+
+}
+
+type Playlist {
+  id: ID
+  uuid: String
+  name: String
+  authorId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\PlaylistType@authorId")
+  author: User
+  accessLevel: Int @field(resolver: "App\\Http\\GraphQL\\Types\\PlaylistType@accessLevel")
+  projects: [Project]
+  createdAt: Date @field(resolver: "App\\Http\\GraphQL\\Types\\PlaylistType@createdAt")
+}
+
+# Input types
+
+input PlaylistInput {
+  id: ID
+  uuid: String
+  name: String
+  authorId: ID
+  author: UserInput
+  accessLevel: Int
+  projects: [ProjectInput]
+}

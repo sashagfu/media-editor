@@ -1,0 +1,7 @@
+#import "../fragments/threadGeneric.graphql"
+
+mutation updateThread($thread: ThreadInput!, $userId: ID) {
+    updateThread (thread: $thread) {
+        ...threadGeneric
+    }
+}

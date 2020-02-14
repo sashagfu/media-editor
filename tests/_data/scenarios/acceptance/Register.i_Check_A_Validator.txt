@@ -1,0 +1,8 @@
+I WANT TO I CHECK A VALIDATOR
+
+I am on page '/register' 
+I click 'Register' 
+I see 'The email field is required.' 
+I see 'The terms conditions must be accepted.' 
+I see current url equals '/register'
+

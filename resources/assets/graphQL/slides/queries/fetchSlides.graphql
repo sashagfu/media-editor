@@ -1,0 +1,9 @@
+#import "../fragments/slideGeneric.graphql"
+#import "../fragments/slideTexts.graphql"
+
+query fetchSlides($id: ID!) {
+    fetchSlides(id: $id) {
+        ...slideGeneric
+        ...slideTexts
+    }
+}

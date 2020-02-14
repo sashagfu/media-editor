@@ -1,0 +1,39 @@
+.me-scrollbar {
+  background: $grey-light;
+  height: 16px;
+  position: relative;
+  width: 100%;
+
+  .scrollbar-container{
+    background: $grey-light;
+    position: absolute;
+    transition: all .3s;
+    z-index: 3;
+
+    &.horizontal{
+      width: 100%;
+      height: 100%;
+      left: 0;
+      bottom: 0;
+
+      .scrollbar{
+        width: 20px;
+        height: 100%;
+        background: $grey;
+      }
+    }
+
+    &.vertical{
+      height: 100%;
+      right: 0;
+      top: 0;
+      width: 12px;
+
+      .scrollbar{
+        background: $grey;
+        height: 20px;
+        width: 100%;
+      }
+    }
+  }
+}

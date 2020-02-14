@@ -1,0 +1,15 @@
+#import "../fragments/userDetails.graphql"
+#import "../fragments/userGeneric.graphql"
+#import "../fragments/userFollow.graphql"
+#import "../fragments/userAmount.graphql"
+#import "../fragments/userSettings.graphql"
+
+query fetchUser($username: String) {
+    fetchUser(username: $username) {
+        ...userDetails
+        ...userGeneric
+        ...userFollow
+        ...userAmount
+        ...userSettings
+    }
+}

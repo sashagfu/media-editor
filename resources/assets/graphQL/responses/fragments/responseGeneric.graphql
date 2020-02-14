@@ -1,0 +1,5 @@
+fragment responseGeneric on Response {
+    message
+    statusCode
+    redirectUrl
+}

@@ -1,0 +1,6 @@
+fragment projectDetails on Project {
+    userReaction
+    isPerformance
+    clipsCount
+    viewsCount
+}

@@ -1,0 +1,7 @@
+#import "../fragments/messageGeneric.graphql"
+
+subscription messageDeleted($threadId: ID!) {
+    messageDeleted(threadId: $threadId) {
+        ...messageGeneric
+    }
+}

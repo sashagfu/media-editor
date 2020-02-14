@@ -1,0 +1,5 @@
+mutation changeThumbnail($projectId: ID!, $thumbTime: String!) {
+    changeThumbnail (projectId: $projectId, thumbTime: $thumbTime) {
+        id
+    }
+}

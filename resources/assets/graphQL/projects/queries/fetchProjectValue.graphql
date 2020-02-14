@@ -1,0 +1,15 @@
+#import "../fragments/projectGeneric.graphql"
+#import "../fragments/projectTags.graphql"
+#import "../fragments/projectValue.graphql"
+#import "../fragments/projectStatus.graphql"
+#import "../fragments/projectLayers.graphql"
+
+query fetchProject($id: ID!) {
+    fetchProject(id: $id) {
+        ...projectGeneric
+        ...projectTags
+        ...projectValue
+        ...projectStatus
+        ...projectLayers
+    }
+}

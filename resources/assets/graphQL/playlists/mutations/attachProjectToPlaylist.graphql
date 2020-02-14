@@ -1,0 +1,7 @@
+#import "../../responses/fragments/responseGeneric.graphql"
+
+mutation attachProjectToPlaylist($projectId: ID!, $playlists: [ID]) {
+  attachProjectToPlaylist(projectId: $projectId, playlists: $playlists) {
+    ...responseGeneric
+  }
+}

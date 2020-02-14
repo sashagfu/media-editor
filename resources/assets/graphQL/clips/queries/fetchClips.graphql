@@ -1,0 +1,13 @@
+#import "../fragments/clipGeneric.graphql"
+#import "../fragments/clipDetails.graphql"
+#import "../fragments/clipProject.graphql"
+#import "../fragments/clipMedia.graphql"
+
+query fetchSavedAssets {
+    fetchSavedAssets {
+        ...clipGeneric
+        ...clipDetails
+        ...clipProject
+        ...clipMedia
+    }
+}

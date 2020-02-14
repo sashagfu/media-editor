@@ -1,0 +1,20 @@
+;suppress inspection "DuplicateKeyInSection" for whole file
+[ignore]
+.*/node_modules/.*
+.*/test/.*
+.*/vendor/.*
+
+[include]
+./resources/assets/js
+
+[libs]
+flow-typed
+
+[options]
+unsafe.enable_getters_and_setters=true
+module.file_ext=.vue
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json
+emoji=true
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe

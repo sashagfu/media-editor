@@ -1,0 +1,19 @@
+#import "../../audios/fragments/audioGeneric.graphql"
+#import "../../images/fragments/imageGeneric.graphql"
+#import "../../videos/fragments/videoGeneric.graphql"
+#import "../../videos/fragments/videoDetails.graphql"
+
+query fetchProjectMedia($projectId: ID!) {
+    fetchProjectMedia(projectId: $projectId) {
+        ... on Audio {
+            ...audioGeneric
+        }
+        ... on Video {
+            ...videoGeneric
+            ...videoDetails
+        }
+        ... on Image {
+            ...imageGeneric
+        }
+    }
+}

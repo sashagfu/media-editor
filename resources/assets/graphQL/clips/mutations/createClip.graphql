@@ -1,0 +1,7 @@
+#import "../fragments/clipGeneric.graphql"
+
+mutation saveAssetMutation($projectId: Int!, $assetType: String!) {
+    saveAsset(projectId: $projectId, assetType: $assetType) {
+        ...clipGeneric
+    }
+}

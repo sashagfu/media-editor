@@ -1,0 +1,17 @@
+
+extend type Subscription @group(middleware: ["auth:api"]) {
+  projectLiked(projectId: ID!): User
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  handleProjectLike(
+    id: ID!
+  ): User @field(resolver: "App\\Http\\GraphQL\\Mutations\\LikeMutator@handleProjectLike")
+  @broadcast(subscription: "projectLiked")
+
+  handleCommentLike(
+    id: ID!
+  ): User @field(resolver: "App\\Http\\GraphQL\\Mutations\\LikeMutator@handleCommentLike")
+
+}

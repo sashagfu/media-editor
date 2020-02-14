@@ -1,0 +1,36 @@
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  deleteImage(
+    id: ID!
+    projectId: ID!
+  ): Image @field(resolver: "App\\Http\\GraphQL\\Mutations\\ImageMutator@delete")
+
+}
+
+type Image {
+  id: ID
+  uuid: String
+  name: String @field(resolver: "App\\Http\\GraphQL\\Types\\ImageType@name")
+  projectId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\ImageType@projectId")
+  fileName: String @field(resolver: "App\\Http\\GraphQL\\Types\\ImageType@fileName")
+  filePath: String @field(resolver: "App\\Http\\GraphQL\\Types\\ImageType@filePath")
+  width: Int
+  height: Int
+  fileSize: Int @field(resolver: "App\\Http\\GraphQL\\Types\\ImageType@fileSize")
+  fileType: String @field(resolver: "App\\Http\\GraphQL\\Types\\ImageType@fileType")
+}
+
+# Input types
+
+input ImageInput {
+  id: ID
+  uuid: String
+  fileName: String
+  filePath: String
+  projectId: ID
+  width: Int
+  height: Int
+  fileSize: Int
+  fileType: String
+}

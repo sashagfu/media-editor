@@ -1,0 +1,9 @@
+#import "../fragments/notificationGeneric.graphql"
+#import "../fragments/notificationData.graphql"
+
+mutation markNotificationsRead($ids: [ID]!) {
+    markNotificationsRead (ids: $ids) {
+        ...notificationGeneric
+        ...notificationData
+    }
+}

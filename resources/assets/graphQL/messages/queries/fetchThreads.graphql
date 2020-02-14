@@ -1,0 +1,7 @@
+#import "../fragments/threadGeneric.graphql"
+
+query fetchThreads($userId: ID) {
+    fetchThreads {
+        ...threadGeneric
+    }
+}

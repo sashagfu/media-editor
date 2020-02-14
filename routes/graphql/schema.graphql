@@ -1,0 +1,99 @@
+#"A datetime string with format 'Y-m-d H:i:s', e.g. '2018-01-01 13:00:00'."
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+#"A date string with format 'Y-m-d', e.g. '2011-05-23'."
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+#import asset.graphql
+#import audio.graphql
+#import comment.graphql
+#import donation.graphql
+#import image.graphql
+#import like.graphql
+#import message.graphql
+#import notification.graphql
+#import playlist.graphql
+#import project.graphql
+#import report.graphql
+#import setting.graphql
+#import slide.graphql
+#import star.graphql
+#import tag.graphql
+#import user.graphql
+#import video.graphql
+
+
+type Query @group(middleware: ["auth:api"]) {
+    fetchUser(username: String): User
+}
+
+type Mutation {
+    loginUser(
+        email: String!
+        password: String!
+        rememberMe: Boolean
+    ): Token @field(resolver: "App\\Http\\GraphQL\\Mutations\\LoginMutator@loginUser")
+
+    registerUser(
+        email: String!
+        termsConditions: Boolean!
+    ): Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\RegisterMutator@registerUser")
+
+    verifyUser(
+        email: String!
+        verificationCode: String!
+    ): Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\RegisterMutator@verifyUser")
+
+    createUser(
+        email: String!
+        username: String!
+        displayName: String!
+        password: String!
+    ): Token @field(resolver: "App\\Http\\GraphQL\\Mutations\\RegisterMutator@createUser")
+
+    sendResetPassword(
+        email: String @rules(apply: ["exists:users,email"])
+    ): Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\ResetPasswordMutator@sendResetPassword")
+
+    resetPassword(
+        token: String!
+        email: String!
+        password: String!
+        passwordConfirmation: String!
+    ): Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\ResetPasswordMutator@reset")
+}
+
+extend type Mutation @group(middleware: ["auth:api"]){
+    logout: Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\LoginMutator@logoutUser")
+}
+
+# TODO Make authentication (Jobs auth issue)
+type Subscription {
+#    NOTIFICATIONS
+    notificationCreated(userId: ID!): Notification
+}
+
+type Token {
+    accessToken: String
+    refreshToken: String
+    expiresIn: String
+    tokenType: String
+}
+
+type Response {
+    status: String
+    message: String
+    statusCode: Int
+    redirectUrl: String
+}
+
+# Unions
+union File = Audio | Video | Image | Asset | Slide
+
+union Starable = Project | Comment
+
+# Input types
+input LoginDataInput {
+    email: String!
+    password: String!
+}

@@ -1,0 +1,7 @@
+fragment socialsGeneric on Socials {
+    googlePlus
+    facebook
+    instagram
+    linkedin
+    snapchat
+}

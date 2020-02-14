@@ -1,0 +1,7 @@
+#import "../../responses/fragments/responseGeneric.graphql"
+
+mutation acceptAllDonations {
+    acceptAllDonations {
+        ...responseGeneric
+    }
+}

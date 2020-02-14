@@ -1,0 +1,8 @@
+I WANT TO I OPEN THE REGISTER PAGE
+
+I am on page '/' 
+I click 'Register' 
+I see 'Register a new membership' 
+I see link 'I already have a membership' 
+I see current url equals '/register'
+

@@ -1,0 +1,8 @@
+mutation verifyUser($email: String!, $verificationCode: String!) {
+    verifyUser(email: $email, verificationCode: $verificationCode) {
+        status
+        message
+        statusCode
+        redirectUrl
+    }
+}

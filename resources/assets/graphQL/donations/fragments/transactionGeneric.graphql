@@ -1,0 +1,9 @@
+fragment transactionGeneric on Transaction {
+    id
+    uuid
+    type
+    amount
+    status
+    createdAt
+    updatedAt
+}

@@ -1,0 +1,6 @@
+fragment notificationGeneric on Notification {
+    id
+    message
+    readAt
+    createdAt
+}

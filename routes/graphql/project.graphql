@@ -1,0 +1,315 @@
+
+extend type Query @group(middleware: ["auth:api"]) {
+  fetchProject(id: ID, uuid: String): Project
+  fetchProjects(userId: ID, term: String, tag: TagInput, status: String): [Project]
+  fetchProjectMedia(projectId: ID): [File]
+  searchProjects(term: String): ProjectSearchResult
+  fetchMyFeed: [Project]
+}
+
+extend type Subscription {
+  projectUpdated(userId: ID!): Project
+  projectFilesUploaded(projectId: ID!): [File]
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  createProject(
+    project: ProjectInput
+  ): Project @field(resolver: "App\\Http\\GraphQL\\Mutations\\ProjectMutator@create")
+
+  updateProject(
+    project: ProjectInput
+  ): Project @field(resolver: "App\\Http\\GraphQL\\Mutations\\ProjectMutator@update")
+
+  deleteProject(
+    id: ID @rules(apply: ["required"])
+  ): Project @field(resolver: "App\\Http\\GraphQL\\Mutations\\ProjectMutator@delete")
+
+  renderProject(
+    id: ID
+  ): Project @field(resolver: "App\\Http\\GraphQL\\Mutations\\ProjectMutator@render")
+
+  publishProject(
+    id: ID
+  ): Project @field(resolver: "App\\Http\\GraphQL\\Mutations\\ProjectMutator@publish")
+
+  renderPublishProject(
+    id: ID
+  ): Project @field(resolver: "App\\Http\\GraphQL\\Mutations\\ProjectMutator@renderPublish")
+
+#  PROJECT FILE
+  createProjectFile(
+    url: String!
+    projectId: ID
+    project: ProjectInput
+    isReady: Boolean
+  ): File @field(resolver: "App\\Http\\GraphQL\\Mutations\\ProjectMutator@uploadFile")
+
+  createProjectFiles(
+    urls: [String!]!
+    projectId: ID
+    project: ProjectInput
+    isReady: Boolean
+  ): Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\ProjectMutator@uploadFiles")
+
+  incrementViews(
+    id: ID!
+  ): Project @field(resolver: "App\\Http\\GraphQL\\Mutations\\ProjectMutator@incrementViews")
+
+  togglePinProject(
+    id: ID!
+  ): Project @field(resolver: "App\\Http\\GraphQL\\Mutations\\ProjectMutator@togglePinProject")
+
+  cloneProject(
+    id: ID!
+  ): Project @field(resolver: "App\\Http\\GraphQL\\Mutations\\ProjectMutator@cloneProject")
+
+  changeThumbnail(
+    projectId: ID!,
+    thumbTime: String!
+  ): Project @field(resolver: "App\\Http\\GraphQL\\Mutations\\ProjectMutator@changeThumbnail")
+
+}
+
+type Project {
+  id: ID!
+  uuid: String
+  title: String!
+  authorId: ID
+  author: User
+  description: String
+  isDraft: Boolean
+  isProcessing: Boolean
+  isPublished: Boolean
+  isRendered: Boolean
+  isFailed: Boolean
+  isPerformance: Boolean
+  progress: Int
+  status: Int
+  thumbPath: String @field(resolver: "App\\Http\\GraphQL\\Types\\ProjectType@thumbPath")
+  spritePath: String @field(resolver: "App\\Http\\GraphQL\\Types\\ProjectType@spritePath")
+  assets(version: Int): [Asset] @field(resolver: "App\\Http\\GraphQL\\Types\\ProjectType@assets")
+  tags: [Tag]
+  comments: [Comment]
+  stars: [User]
+  likes: [User]
+  slides: [Slide]
+  userReaction: Boolean
+  clipsCount: Int
+  viewsCount: Int
+  value: [TimelineItem] @hasMany(relation: "inputs")
+  layers: [Layer]
+  thumbTime: String
+  credits: [Credit]
+  foreignCredits: [Credit]
+  pinned: Boolean
+  duration: Int
+}
+
+type Credit {
+  id: ID
+  uuid: String
+  projectId: ID
+  project: Project
+  details: CreditDetails
+}
+
+type CreditDetails {
+  to: Int
+  from: Int
+  percentages: Float
+  project: Project @field(resolver: "App\\Http\\GraphQL\\Types\\CreditsType@foreignCreditsProject")
+  author: User @field(resolver: "App\\Http\\GraphQL\\Types\\CreditsType@author")
+  type: AssetType
+  deprecated: Boolean @field(resolver: "App\\Http\\GraphQL\\Types\\CreditsType@deprecated")
+}
+
+type Layer {
+  id: ID
+  height: Float
+  volume: Float
+}
+
+type TimelineItem {
+  id: ID
+  uuid: String
+  projectId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\ProjectInputType@projectId")
+  objectId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\ProjectInputType@objectId")
+  object: File
+  file: File
+  type: String
+  layerId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\ProjectInputType@layerId")
+  position: Int @field(resolver: "App\\Http\\GraphQL\\Types\\ProjectInputType@position")
+  startFrom: Float @field(resolver: "App\\Http\\GraphQL\\Types\\ProjectInputType@startFrom")
+  length: Int @field(resolver: "App\\Http\\GraphQL\\Types\\ProjectInputType@length")
+  transform: TimelineItemTransform
+  volumeControl: [VolumeControl]
+  @field(resolver: "App\\Http\\GraphQL\\Types\\ProjectInputType@volumeControls")
+  effects: Effects
+}
+
+type VolumeControl {
+  id: ID
+  length: Float
+  level: Float
+}
+
+type TimelineItemTransform {
+  scale: Int
+  position: TimelineItemPosition
+  size: TimelineItemSize
+}
+
+type TimelineItemPosition {
+  x: Float
+  y: Float
+}
+
+type TimelineItemSize {
+  width: Float
+  height: Float
+}
+
+type ProjectSearchResult {
+  projects: [Project]
+  tags: [Tag]
+}
+
+# Input types
+
+input ProjectInput {
+  id: ID
+  uuid: String
+  title: String!
+  authorId: ID
+  author: UserInput
+  description: String
+  isDraft: Boolean
+  isProcessing: Boolean
+  isPublished: Boolean
+  isRendered: Boolean
+  isFailed: Boolean
+  isPerformance: Boolean
+  progress: Int
+  status: Int
+  thumbPath: String
+  spritePath: String
+  assets: [AssetInput]
+  tags: [TagInput]
+  comments: [CommentInput]
+  stars: [UserInput]
+  likes: [UserInput]
+  slides: [SlideInput]
+  userReaction: Boolean
+  clipsCount: Int
+  viewsCount: Int
+  thumbTime: String
+  value: [TimelineItemInput]
+  layers: [LayerInput]
+  credits: [CreditsInput]
+  pinned: Boolean
+  duration: Int
+}
+
+input CreditsInput {
+  id: ID
+  uuid: String
+  projectId: ID
+  version: Int
+  credits: [CreditsDataInput]
+}
+
+input CreditsDataInput {
+  to: Int
+  from: Int
+  percentages: Float
+  project: ProjectInput
+  author: UserInput
+  type: AssetType
+}
+
+
+input LayerInput {
+  id: ID
+  height: Float
+  volume: Float
+}
+
+input FileInput {
+  id: ID
+  uuid: String
+  isPerformance: Boolean
+  authorId: ID
+  author: UserInput
+  name: String
+  spritePath: String
+  time: String
+  filePath: String
+  thumbnailPath: String
+  sprite: String
+  fileName: String
+  mediaType: String
+  width: Int
+  height: Int
+  fileSize: Int
+  projectId: ID
+  project: ProjectInput
+  type: String
+  version: Int
+  fileType: String
+  thumbPath: String
+  waveformData: String
+  enableToSave: Boolean
+  credits: [UserInput]
+  frames: Int
+  items: [TextInput]
+  texts: [TextInput]
+  effects: EffectsInput
+  canvasSize: TimelineItemSizeInput
+  createdAt: String
+  updatedAt: String
+}
+
+input TimelineItemInput {
+  id: ID
+  uuid: String
+  projectId: ID
+  objectId: ID
+  object: FileInput
+  file: FileInput
+  type: String
+  unlinked: Boolean
+  pendingUnlink: Boolean
+  showAs: String
+  layerId: ID
+  position: Float
+  startFrom: Float
+  length: Float
+  transform: TimelineItemTransformInput
+  volumeControl: [VolumeControlInput]
+  effects: EffectsInput
+}
+
+input VolumeControlInput {
+  id: ID
+  length: Float
+  level: Float
+}
+
+input TimelineItemTransformInput {
+  scale: Int
+  position: TimelineItemPositionInput
+  size: TimelineItemSizeInput
+}
+
+input TimelineItemPositionInput {
+  x: Float
+  y: Float
+}
+
+input TimelineItemSizeInput {
+  width: Float
+  height: Float
+}
+

@@ -1,0 +1,10 @@
+I WANT TO I SHOULD SEE THE LINKS AND THE VIDEO PLAYER
+
+I am on page '/' 
+I see in title 'Actionlime'
+I see link 'Following' 
+I see link 'Performances' 
+I see link 'Login' 
+I see link 'Register' 
+I can see element "$video_player"
+

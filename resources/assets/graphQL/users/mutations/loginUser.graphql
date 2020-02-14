@@ -1,0 +1,8 @@
+mutation loginUser($email: String!, $password: String!, $rememberMe: Boolean) {
+    loginUser(email: $email, password: $password, rememberMe: $rememberMe) {
+        accessToken
+        refreshToken
+        expiresIn
+        tokenType
+    }
+}

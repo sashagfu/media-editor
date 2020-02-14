@@ -1,0 +1,130 @@
+
+extend type Query @group(middleware: ["auth:api"]) {
+  fetchThreads(userId: ID): [Thread]
+  fetchMessages(
+    threadId: ID
+  ): [Message]
+}
+
+extend type Subscription @group(middleware: ["auth:api"]) {
+  messageCreated(threadId: ID!): Message
+  messageDeleted(threadId: ID!): Message
+  messageUpdated(threadId: ID!): Message
+  threadRead(userId: ID!, threadId: ID!): Thread
+  threadUpdated(userId: ID!): Thread
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  createThread(
+    targetId: ID!
+  ): Thread @field(resolver: "App\\Http\\GraphQL\\Mutations\\ChatMutator@createThread")
+
+  createGroupThread(
+    ids: [ID]!
+  ): Thread @field(resolver: "App\\Http\\GraphQL\\Mutations\\ChatMutator@createGroupThread")
+
+  updateThread(
+    thread: ThreadInput!,
+  ): Thread @field(resolver: "App\\Http\\GraphQL\\Mutations\\ChatMutator@updateThread")
+
+  openThread(
+    id: ID!
+  ): Thread @field(resolver: "App\\Http\\GraphQL\\Mutations\\ChatMutator@openThread")
+
+  closeThread(
+    id: ID!
+  ): Thread @field(resolver: "App\\Http\\GraphQL\\Mutations\\ChatMutator@closeThread")
+
+  hideThread(
+    id: ID!
+  ): Thread @field(resolver: "App\\Http\\GraphQL\\Mutations\\ChatMutator@hideThread")
+
+  createMessage(
+    message: MessageInput!
+  ): Message @field(resolver: "App\\Http\\GraphQL\\Mutations\\ChatMutator@createMessage")
+
+  updateMessage(
+    message: MessageInput!
+  ): Message @field(resolver: "App\\Http\\GraphQL\\Mutations\\ChatMutator@updateMessage")
+
+  deleteMessage(
+    id: ID!
+  ): Message @field(resolver: "App\\Http\\GraphQL\\Mutations\\ChatMutator@deleteMessage")
+
+  markThreadRead(
+    threadId: ID!
+  ): Thread @field(resolver: "App\\Http\\GraphQL\\Mutations\\ChatMutator@markThreadRead")
+
+  createParticipants(
+    threadId: ID!,
+    ids: [ID]!
+  ): Thread @field(resolver: "App\\Http\\GraphQL\\Mutations\\ChatMutator@createParticipants")
+
+  deleteParticipants(
+    threadId: ID!,
+    ids: [ID]!
+  ): Thread @field(resolver: "App\\Http\\GraphQL\\Mutations\\ChatMutator@deleteParticipants")
+
+}
+
+type Thread {
+  id: ID
+  creatorId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\ThreadType@creatorId")
+  name: String
+  messages: [Message]
+  users: [User] @field(resolver: "App\\Http\\GraphQL\\Types\\ThreadType@users")
+  hidden: Boolean @field(resolver: "App\\Http\\GraphQL\\Types\\ThreadType@hidden")
+  active(userId: ID): Boolean @field(resolver: "App\\Http\\GraphQL\\Types\\ThreadType@active")
+  reader: User #Thread reader, comes from subscription resolver
+  unreadMessagesCount(userId: ID): Int @field(resolver: "App\\Http\\GraphQL\\Types\\ThreadType@unreadMessagesCount")
+}
+
+type Message {
+  id: ID
+  threadId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\MessageType@threadId")
+  userId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\MessageType@userId")
+  user: User
+  body: String
+  shareData: ShareData @field(resolver: "App\\Http\\GraphQL\\Types\\MessageType@shareData")
+  project: Project @field(resolver: "App\\Http\\GraphQL\\Types\\MessageType@project")
+  createdAt: DateTime @field(resolver: "App\\Http\\GraphQL\\Types\\MessageType@createdAt")
+  updatedAt: DateTime @field(resolver: "App\\Http\\GraphQL\\Types\\MessageType@updatedAt")
+}
+
+type ShareData {
+  shareType: String
+  shareId: ID
+  shareUuid: String
+}
+
+# Input types
+
+input MessageInput {
+  id: ID
+  threadId: ID!
+  userId: ID
+  user: UserInput
+  body: String!
+  shareData: ShareDataInput
+  project: ProjectInput
+  createdAt: String
+  updatedAt: String
+}
+
+input ThreadInput {
+  id: ID
+  creatorId: ID
+  name: String
+  messages: [MessageInput]
+  users: [UserInput]
+  hidden: ID
+  reader: UserInput #Thread reader, comes from subscription resolver
+  unreadMessagesCount: Int
+}
+
+input ShareDataInput {
+  shareType: String
+  shareId: ID
+  shareUuid: String
+}

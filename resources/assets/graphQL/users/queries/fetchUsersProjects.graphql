@@ -1,0 +1,11 @@
+#import "../fragments/userDetails.graphql"
+#import "../fragments/userGeneric.graphql"
+#import "../fragments/userProjects.graphql"
+
+query fetchUsers($term: String!) {
+    fetchUsers(term: $term) {
+        ...userDetails
+        ...userGeneric
+        ...userProjects
+    }
+}

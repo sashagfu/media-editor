@@ -1,0 +1,12 @@
+fragment projectGeneric on Project {
+    id
+    uuid
+    title,
+    description,
+    authorId,
+    thumbPath
+    spritePath
+    thumbTime
+    pinned
+    duration
+}

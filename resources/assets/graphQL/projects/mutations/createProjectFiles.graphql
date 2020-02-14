@@ -1,0 +1,17 @@
+#import "../../responses/fragments/responseGeneric.graphql"
+
+mutation createProjectFiles(
+        $urls: [String!]!
+        $projectId: ID
+        $project: ProjectInput
+        $isReady: Boolean
+    ) {
+        createProjectFiles(
+            urls: $urls
+            projectId: $projectId
+            project: $project
+            isReady: $isReady
+        ) {
+            ...responseGeneric
+    }
+}

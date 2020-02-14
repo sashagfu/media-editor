@@ -1,0 +1,11 @@
+#import "../fragments/transactionGeneric.graphql"
+#import "../fragments/transactionUsers.graphql"
+#import "../fragments/transactionData.graphql"
+
+subscription donationCreated($payeeId: ID!) {
+  donationCreated(payeeId: $payeeId) {
+    ...transactionGeneric
+    ...transactionUsers
+    ...transactionData
+  }
+}

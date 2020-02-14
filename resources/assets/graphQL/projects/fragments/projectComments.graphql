@@ -1,0 +1,15 @@
+#import "../../comments/fragments/commentAuthor.graphql"
+#import "../../comments/fragments/commentDetails.graphql"
+#import "../../comments/fragments/commentGeneric.graphql"
+#import "../../comments/fragments/commentLikes.graphql"
+#import "../../comments/fragments/commentReplies.graphql"
+
+fragment projectComments on Project {
+    comments {
+        ...commentAuthor
+        ...commentDetails
+        ...commentGeneric
+        ...commentLikes
+        ...commentReplies
+    }
+}

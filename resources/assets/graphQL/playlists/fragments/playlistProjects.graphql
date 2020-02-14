@@ -1,0 +1,19 @@
+#import "../../projects/fragments/projectGeneric.graphql"
+#import "../../projects/fragments/projectAuthor.graphql"
+#import "../../projects/fragments/projectAssets.graphql"
+#import "../../projects/fragments/projectDetails.graphql"
+
+fragment playlistProjects on Playlist {
+  projects {
+    ...projectGeneric
+    ...projectAuthor
+    ...projectAssets
+    ...projectDetails
+    comments {
+      id
+    }
+    stars {
+      id
+    }
+  }
+}

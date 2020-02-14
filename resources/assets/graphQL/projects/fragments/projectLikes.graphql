@@ -1,0 +1,10 @@
+#import "../../users/fragments/userGeneric.graphql"
+
+fragment projectLikes on Project {
+    stars {
+        ...userGeneric
+    }
+    likes {
+        ...userGeneric
+    }
+}

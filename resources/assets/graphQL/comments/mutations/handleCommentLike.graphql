@@ -1,0 +1,7 @@
+#import "../../users/fragments/userGeneric.graphql"
+
+mutation handleCommentLike($id: ID!) {
+    handleCommentLike(id: $id) {
+        ...userGeneric
+    }
+}

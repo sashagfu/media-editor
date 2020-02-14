@@ -1,0 +1,15 @@
+#import "../../credits/fragments/creditGeneric.graphql"
+#import "../../credits/fragments/creditDetails.graphql"
+#import "../../credits/fragments/creditProject.graphql"
+
+fragment projectCredits on Project {
+    credits {
+        ...creditGeneric
+        ...creditDetails
+    }
+    foreignCredits {
+        ...creditGeneric
+        ...creditDetails
+        ...creditProject
+    }
+}

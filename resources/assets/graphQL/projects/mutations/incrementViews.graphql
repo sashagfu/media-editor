@@ -1,0 +1,7 @@
+#import "../fragments/projectGeneric.graphql"
+
+mutation incrementViews($id: ID!) {
+    incrementViews(id: $id) {
+        ...projectGeneric
+    }
+}

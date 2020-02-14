@@ -1,0 +1,16 @@
+#import "../fragments/commentAuthor.graphql"
+#import "../fragments/commentDetails.graphql"
+#import "../fragments/commentGeneric.graphql"
+#import "../fragments/commentLikes.graphql"
+#import "../fragments/commentReplies.graphql"
+
+
+query fetchComments($id: ID!) {
+    fetchComments(id: $id) {
+        ...commentAuthor
+        ...commentDetails
+        ...commentGeneric
+        ...commentLikes
+        ...commentReplies
+    }
+}

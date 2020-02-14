@@ -1,0 +1,12 @@
+I WANT TO I TRY TO LOG IN VERIFIED
+
+I am on page '/login' 
+I fill field 'email'," 'homer.simpson@example.com' 
+I fill field 'password'," 'wrong' 
+I click 'Sign In' 
+I see 'These credentials do not match our records.' 
+I fill field 'password'," 'AmazingPass!1' 
+I click 'Sign In' 
+I see '@homer.simpson' 
+I see current url equals '/following'
+

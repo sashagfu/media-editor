@@ -1,0 +1,7 @@
+#import "../fragments/threadGeneric.graphql"
+
+mutation hideThread($id: ID!, $userId: ID) {
+    hideThread (id: $id) {
+        ...threadGeneric
+    }
+}

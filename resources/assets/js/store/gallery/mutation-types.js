@@ -1,0 +1,11 @@
+export const SET_ITEMS = 'SET_ITEMS';
+export const SET_ITEMS_CLIP = 'SET_ITEMS_CLIP';
+export const SET_FILTERS = 'SET_FILTERS';
+export const SET_SHOW = 'SET_SHOW';
+export const ADD_ITEM = 'ADD_ITEM';
+export const SET_SELECTED_ITEMS = 'SET_SELECTED_ITEMS';
+export const SET_LOADING = 'SET_LOADING';
+export const SET_COMPONENT = 'SET_COMPONENT';
+export const ADD_ITEM_TEXT = 'ADD_ITEM_TEXT';
+export const SET_ITEM_TEXT = 'SET_ITEM_TEXT';
+export const SET_RECENT_PROJECTS = 'SET_RECENT_PROJECTS';

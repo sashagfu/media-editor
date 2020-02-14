@@ -1,0 +1,15 @@
+#import "../../users/fragments/userGeneric.graphql"
+
+fragment clipDetails on Asset {
+    filePath,
+    enableToSave,
+    time
+    frames
+    height
+    width
+    credits {
+        ...userGeneric
+    },
+}
+
+

@@ -1,0 +1,38 @@
+fragment slideTexts on Slide {
+    texts {
+        id
+        text
+        fontFamily
+        fontStyle
+        fontWeight
+        position {
+            x
+            y
+        }
+        fontSize
+        textAlign
+        color
+        size {
+            h
+            w
+        }
+    }
+    items {
+        id
+        text
+        fontFamily
+        fontStyle
+        fontWeight
+        position {
+            x
+            y
+        }
+        fontSize
+        textAlign
+        color
+        size {
+            h
+            w
+        }
+    }
+}

@@ -1,0 +1,27 @@
+@import './variables'
+
+.me-tl-layer-cursor-split-handler {
+  border-left: ($me-timeline-cursor-split-handler-snap-size)px solid transparent;
+  border-right: ($me-timeline-cursor-split-handler-snap-size)px solid transparent;
+  box-sizing: content-box;
+  cursor: $me-timeline-split-cursor;
+  height: 100%;
+  margin-left: -($me-timeline-cursor-split-handler-snap-size)px;
+  position: absolute;
+  width: ($me-timeline-ruler-cursor-width)px;
+  z-index: 12;
+
+  &:before {
+    background-color: #ff5d38;
+    content: '';
+    display: block;
+    height: 100%;
+    opacity: 0;
+    transition: .3s opacity;
+    width: 100%;
+  }
+
+  &:hover:before {
+    opacity: .8;
+  }
+}

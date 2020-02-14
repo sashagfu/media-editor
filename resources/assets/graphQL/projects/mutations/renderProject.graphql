@@ -1,0 +1,11 @@
+#import "../fragments/projectGeneric.graphql"
+#import "../fragments/projectStatus.graphql"
+#import "../fragments/projectTags.graphql"
+
+mutation renderProject($id: ID) {
+    renderProject(id: $id) {
+        ...projectGeneric
+        ...projectStatus
+        ...projectTags
+    }
+}

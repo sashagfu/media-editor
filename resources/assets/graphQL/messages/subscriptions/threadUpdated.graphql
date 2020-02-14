@@ -1,0 +1,7 @@
+#import "../fragments/threadGeneric.graphql"
+
+subscription threadUpdated($userId: ID!) {
+    threadUpdated(userId: $userId) {
+        ...threadGeneric
+    }
+}

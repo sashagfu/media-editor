@@ -1,0 +1,18 @@
+#import "../../users/fragments/userGeneric.graphql"
+#import "../../users/fragments/userDetails.graphql"
+
+fragment threadGeneric on Thread {
+    id
+    name
+    hidden
+    active(userId: $userId)
+    reader {
+        ...userGeneric
+        ...userDetails
+    }
+    unreadMessagesCount(userId: $userId)
+    users {
+        ...userGeneric
+        ...userDetails
+    }
+}

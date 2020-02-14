@@ -1,0 +1,52 @@
+
+extend type Query @group(middleware: ["auth:api"]) {
+  fetchComments(id: ID!): [Comment]
+}
+
+extend type Subscription @group(middleware: ["auth:api"]) {
+  commentCreated(projectId: ID!): Comment
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  createComment(
+    comment: CommentInput!
+  ): Comment @field(resolver: "App\\Http\\GraphQL\\Mutations\\CommentMutator@create")
+
+  deleteComment(
+    id: ID
+  ): Comment @field(resolver: "App\\Http\\GraphQL\\Mutations\\CommentMutator@delete")
+
+}
+
+type Comment {
+  id: ID!
+  uuid: String
+  text: String
+  isLiked: String
+  createdAtDiff: String
+  repliesLength: Int
+  authorId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\CommentType@authorId")
+  author: User
+  projectId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\CommentType@projectId")
+  parentId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\CommentType@parentId")
+  likes: [User]
+  replies: [Comment]
+}
+
+# Input types
+
+input CommentInput {
+  id: ID
+  uuid: String
+  text: String
+  isLiked: String
+  createdAtDiff: String
+  repliesLength: Int
+  authorId: ID
+  author: UserInput
+  projectId: ID
+  parentId: ID
+  likes: [UserInput]
+  replies: [CommentInput]
+}

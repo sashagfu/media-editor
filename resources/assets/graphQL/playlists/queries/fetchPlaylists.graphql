@@ -1,0 +1,11 @@
+#import "../fragments/playlistGeneric.graphql"
+#import "../fragments/playlistProjects.graphql"
+#import "../fragments/playlistAuthor.graphql"
+
+query fetchPlaylists($userId: ID!) {
+  fetchPlaylists(userId: $userId) {
+    ...playlistGeneric
+    ...playlistProjects
+    ...playlistAuthor
+  }
+}

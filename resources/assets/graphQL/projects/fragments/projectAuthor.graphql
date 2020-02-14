@@ -1,0 +1,9 @@
+#import "../../users/fragments/userGeneric.graphql"
+#import "../../users/fragments/userDetails.graphql"
+
+fragment projectAuthor on Project {
+    author {
+        ...userGeneric
+        ...userDetails
+    }
+}

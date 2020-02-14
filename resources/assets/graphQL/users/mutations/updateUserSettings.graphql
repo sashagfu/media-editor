@@ -1,0 +1,8 @@
+mutation updateUserSettings($settings: SettingsInput) {
+    updateUserSettings(settings: $settings) {
+        privacy {
+            showSponsorship
+            showTopSponsors
+        }
+    }
+}

@@ -1,0 +1,33 @@
+<?php
+
+return [
+
+    'comments'         => 'Comments',
+    'content'          => 'Content',
+    'created'          => 'Your post has been created successfully!',
+    'delete_post'      => 'Delete post',
+    'delete_post_warn' => 'Do you really want to delete the post?',
+    'edit'             => 'Edit Post',
+    'email_share'      => 'Enter email(s) you want to share this post with',
+    'flag_post'        => 'Flag post',
+    'flags'            => 'Flags',
+    'ID'               => 'ID',
+    'likes'            => 'Likes',
+    'media'            => 'Media',
+    'new_to_share'     => 'Do you have something to share?',
+    'no_video'         => 'You have not uploaded cool videos yet!',
+    'page_title'       => 'Posts',
+    'reactions'        => 'Reactions',
+    'reset_post'       => 'Reset post',
+    'select_video'     => 'Select video',
+    'share'            => 'Share',
+    'share_successful' => 'The post was successfully shared!',
+    'share_to_chat'    => 'Start typing user name to share this post with:',
+    'shared_mail_post' => ':Name has shared post with you',
+    'shared_post'      => 'Shared post',
+    'stars'            => 'Stars',
+    'title'            => 'Title',
+    'upload_media'     => 'Upload Media',
+    'user_has_shared'  => ':User has shared the post with you',
+    'visit_post'       => 'Click here to visit post',
+];

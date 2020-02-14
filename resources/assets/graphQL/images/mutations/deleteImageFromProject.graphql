@@ -1,0 +1,7 @@
+#import "../fragments/imageGeneric.graphql"
+
+mutation deleteImage($id: ID!, $projectId: ID!) {
+    deleteImage(id: $id, projectId: $projectId) {
+        ...imageGeneric
+    }
+}

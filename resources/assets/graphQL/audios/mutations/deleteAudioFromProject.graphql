@@ -1,0 +1,7 @@
+#import "../fragments/audioGeneric.graphql"
+
+mutation deleteAudio($id: ID!, $projectId: ID!) {
+    deleteAudio(id: $id, projectId: $projectId) {
+        ...audioGeneric
+    }
+}

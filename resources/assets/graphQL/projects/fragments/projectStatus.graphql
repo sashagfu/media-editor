@@ -1,0 +1,9 @@
+fragment projectStatus on Project {
+    isDraft,
+    isProcessing,
+    isPublished,
+    isRendered,
+    isFailed,
+    progress,
+    status,
+}

@@ -1,0 +1,34 @@
+.me-bl-main {
+  // padding 23px 10px
+  &__row {
+    padding 13px 0
+  }
+  &__column {
+    padding 0 13px
+  }
+}
+.me-bl-main-tale {
+  fl-between()
+  background-color $white
+  border-radius 3px
+  border 1px solid $border
+  height 56px
+  padding 0 26px
+  &__left {
+    fl-left()
+    height 100%
+  }
+  &__right {
+    fl-right()
+    height 100%
+  }
+  &__title {
+    fnt($text, 14px, $weight-semibold, left)
+  }
+  &__set {
+    background center center no-repeat
+    cursor pointer
+    height 100%
+    width 26px
+  }
+}

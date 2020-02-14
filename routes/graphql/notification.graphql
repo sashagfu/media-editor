@@ -1,0 +1,32 @@
+
+extend type Query @group(middleware: ["auth:api"]) {
+  fetchNotifications(skip: Int!): [Notification]
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+  markNotificationsRead(
+    ids: [ID]!
+  ): [Notification] @field(resolver: "App\\Http\\GraphQL\\Mutations\\NotificationMutator@markNotificationsRead")
+
+  deleteNotifications: Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\NotificationMutator@deleteNotifications")
+}
+
+type Notification {
+  id: ID
+  message: String @field(resolver: "App\\Http\\GraphQL\\Types\\NotificationType@notifyMessage")
+  data: NotificationData
+  readAt: DateTime @field(resolver: "App\\Http\\GraphQL\\Types\\NotificationType@readAt")
+  createdAt: DateTime @field(resolver: "App\\Http\\Graphql\\Types\\NotificationType@createdAt")
+}
+
+type NotificationData {
+  typeName: String @field(resolver: "App\\Http\\GraphQL\\Types\\NotificationType@typeName")
+  project: Project @field(resolver: "App\\Http\\GraphQL\\Types\\NotificationType@project")
+  star: Star @field(resolver: "App\\Http\\GraphQL\\Types\\NotificationType@star")
+  donation: Transaction @field(resolver: "App\\Http\\GraphQL\\Types\\NotificationType@donation")
+  user: User @field(resolver: "App\\Http\\GraphQL\\Types\\NotificationType@user")
+  comment: Comment @field(resolver: "App\\Http\\GraphQL\\Types\\NotificationType@comment")
+  follower: User @field(resolver: "App\\Http\\GraphQL\\Types\\NotificationType@follower")
+  asset: Asset @field(resolver: "App\\Http\\GraphQL\\Types\\NotificationType@asset")
+  message: Message @field(resolver: "App\\Http\\GraphQL\\Types\\NotificationType@message")
+}

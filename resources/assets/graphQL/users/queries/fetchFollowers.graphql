@@ -1,0 +1,11 @@
+#import "../fragments/userDetails.graphql"
+#import "../fragments/userGeneric.graphql"
+#import "../fragments/userFollow.graphql"
+
+query fetchFollowers($userId: ID) {
+    fetchFollowers(userId: $userId) {
+        ...userDetails
+        ...userGeneric
+        ...userFollow
+    }
+}

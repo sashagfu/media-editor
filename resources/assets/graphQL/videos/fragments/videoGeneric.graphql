@@ -1,0 +1,10 @@
+fragment videoGeneric on Video {
+    id
+    uuid
+    name
+    projectId
+    time
+    frames
+    height
+    width
+}

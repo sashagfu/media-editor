@@ -1,0 +1,40 @@
+.top-bar-search__ul-autocomplete{
+  background-color: $white-bis;
+  border: 1px solid $border;
+  box-shadow: 0 0 5px $grey-lighter;
+  list-style: none;
+  max-height: 350px;
+  outline: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+}
+.top-bar-search__li-autocomplete{
+  border-bottom: 1px solid $grey-middle;
+}
+.ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.autocomplete-result{
+  cursor: pointer;
+}
+.autocomplete-result__icon{
+  margin: 1rem 0;
+}
+.autocomplete-result__quote{
+  border-left: 1px solid $border;
+  font-size: 0.8rem;
+  margin: 0.1rem 0 1rem;
+  padding: 0 1.25rem 0 0.8875rem;
+}
+.autocomplete-result__post-header{
+  display: block;
+  margin: 5px 0;
+}

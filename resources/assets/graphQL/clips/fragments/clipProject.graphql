@@ -1,0 +1,16 @@
+#import "../../projects/fragments/projectDetails.graphql"
+#import "../../projects/fragments/projectGeneric.graphql"
+#import "../../projects/fragments/projectAuthor.graphql"
+#import "../../projects/fragments/projectComments.graphql"
+#import "../../projects/fragments/projectLikes.graphql"
+
+fragment clipProject on Asset {
+    project {
+        ...projectDetails
+        ...projectGeneric
+        ...projectAuthor
+        ...projectComments
+        ...projectLikes
+    },
+}
+

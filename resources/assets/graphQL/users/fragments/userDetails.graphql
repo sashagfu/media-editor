@@ -1,0 +1,11 @@
+#import "../../socials/fragments/socialsGeneric.graphql"
+
+fragment userDetails on User {
+    createdAt
+    updatedAt
+    socials {
+        ...socialsGeneric
+    }
+    quote
+    bio
+}

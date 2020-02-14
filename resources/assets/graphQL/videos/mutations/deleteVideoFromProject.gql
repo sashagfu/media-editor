@@ -1,0 +1,8 @@
+#import "../fragments/videoGeneric.graphql"
+
+mutation deleteVideo($id: ID!, $projectId: ID!) {
+    deleteVideo(id: $id, projectId: $projectId) {
+        ...videoGeneric
+    }
+}
+

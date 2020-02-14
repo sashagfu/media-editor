@@ -1,0 +1,9 @@
+#import "../fragments/notificationGeneric.graphql"
+#import "../fragments/notificationData.graphql"
+
+query fetchNotifications {
+    fetchNotifications {
+        ...notificationGeneric
+        ...notificationData
+    }
+}

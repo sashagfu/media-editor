@@ -1,0 +1,21 @@
+export default {
+  activeComment: {},
+  activePost: {},
+  // commentLoading: false,
+  deleteLoading: false,
+  errors: [],
+  // feedItems: {},
+  mentionUsers: [],
+  toggleCommentDeleteModal: false,
+  toggleFlagModal: false,
+  togglePostDeleteModal: false,
+  videoModalActive: false,
+  videos: [],
+  videosLoading: false,
+  error: {},
+  clickedComment: {},
+  // clickedPost: {},
+  // grqphQL functionality
+  commentsVisibility: [],
+  repliesVisibility: [],
+};

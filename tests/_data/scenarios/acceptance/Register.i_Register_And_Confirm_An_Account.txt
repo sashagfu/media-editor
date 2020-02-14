@@ -1,0 +1,12 @@
+I WANT TO I REGISTER AND CONFIRM AN ACCOUNT
+
+I am on page '/register' 
+I fill field 'email'," self::EMAIL" 
+I click '/html/body/div[1]/div[2]/form/div[2]/div/label' 
+I click 'Register' 
+I see current url equals '/' 
+I from db()->from('users')->where('email', self::email)->first "" 
+I receive an email to email "self::EMAIL" 
+I can see in email html body '<h3>Hello john.doe! Welcome to our website. </h3>' 
+I can see in email html body "$activation_link"
+

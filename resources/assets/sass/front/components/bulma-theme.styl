@@ -1,0 +1,288 @@
+$black = hsl(0, 0%, 4%);  //#0a0a0a
+$black-bis =   hsl(0, 0%, 7%);  //#121212
+$black-ter =   hsl(0, 0%, 14%); //#242424
+
+$grey-darker = hsl(0, 0%, 21%); //#363636
+$grey-dark =   hsl(0, 0%, 29%); //#4a4a4a
+$grey-bis =    hsl(0, 0%, 38%); //#616161
+$grey =        hsl(0, 0%, 48%); //#7a7a7a
+$grey-middle = hsl(0, 0%, 60%); //#999
+$grey-light =  hsl(0, 0%, 71%); //#b5b5b5
+$grey-lighter =hsl(0, 0%, 86%); //#dbdbdb
+
+$white-shadow =hsl(0, 0%, 90%); //#e6e6e6
+$white-ter =   hsl(0, 0%, 94%); //#f0f0f0
+$white-bis =   hsl(0, 0%, 98%); //#fafafa
+$white =       hsl(0, 0%, 100%); //#fff
+
+
+$lime =      hsl(114, 44%, 50%); //#51b847
+$orange =    hsl(14, 96%, 54%); //#fa4e19
+$yellow =    hsl(48, 100%, 59%); //#ffd52e
+$green =     hsl(141, 71%, 48%); //#4ce180
+$turquoise = hsl(172, 92%, 45%); //#09dcc0
+$blue =      hsl(197, 100%, 50%); //#00b7ff
+$purple =    hsl(260, 63%, 64%); //#9069dd
+$red =       hsl(354, 100%, 65%);//#ff4d5e reject
+$coral =     hsl(11, 100%, 61%); //#ff5d38
+
+// brands colors
+$twitter =   hsl(192, 87%, 58%); //#37ccf1
+$facebook =  hsl(216, 53%, 40%); //#305b9c
+$dribbble =  hsl(340, 91%, 62%); //#f64681
+$paypal =    hsl(210.9, 52.8%, 49%); // #3b7bbf;
+$paypal-invert = hsl(30.9, 52.8%, 51%); // #c48440;
+$rss =       $yellow; //rgb(250,184,19);
+
+
+$lime-hover =      lighten($lime, 10%); // #74c66c
+$orange-hover =    lighten($orange, 10%);
+$yellow-hover =    lighten($yellow, 10%);
+$green-hover =     lighten($green, 10%);
+$turquoise-hover = lighten($turquoise, 10%);
+$blue-hover =      lighten($blue, 10%);
+$purple-hover =    lighten($purple, 10%);
+$red-hover =       lighten($red, 10%);
+$coral-hover =     lighten($coral, 10%);
+
+//Typography
+$family-sans-serif = -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$family-monospace = "Inconsolata", "Consolas", "Monaco", monospace;
+
+$size-1 = 3.5rem;
+$size-2 = 2.75rem;
+$size-3 = 2rem;
+$size-4 = 1.5rem;
+$size-5 = 1.25rem;
+$size-6 = 14px;
+$size-7 = 0.75rem;
+
+$weight-light = 300;
+$weight-normal = 400;
+$weight-semibold = 600;
+$weight-bold = 700;
+
+  //Primary colors
+$primary = $lime;
+$secondary = $coral;
+$info = $blue;
+$accented = $purple;
+$success = $turquoise;
+$warning =$yellow;
+$danger = $red;
+$light = $white-ter;
+$dark =	$grey-darker;
+
+  //Generated variables
+$primary-invert = $white; // findColorInvert($primary);
+$info-invert = $white; // findColorInvert($info);
+$accented-invert = $white; // findColorInvert($accented);
+$success-invert = $white; // findColorInvert($success);
+$warning-invert = $white; // findColorInvert($warning);
+$danger-invert = $white; // findColorInvert($danger);
+$light-invert = $dark;
+$dark-invert = $light;
+
+
+  //General colors
+$body-background =	$white-ter;
+$background =	    $white-bis;
+$background-light =  $white;
+$background-hover =  $white-ter;
+
+$border =	        $white-shadow;
+$border-hover =	    $grey-lighter;
+
+$cover-grey =      rgba($grey-dark, .8);
+$cover-white =     rgba($white-bis, .8);
+$cover-primary =   rgba($primary, .8);
+$cover-turquoise = rgba($turquoise, .8);
+$cover-info = rgba($info, .8);
+
+  //Text colors
+$text =	        $grey-dark;
+$text-invert =	$white; // findColorInvert($text);
+$text-light =	$grey;
+$text-lighter =  $grey-light;
+$text-strong =	$grey-darker;
+
+  //Code colors
+$code =	            $red;
+$code-background =   $background;
+$pre =	            $text;
+$pre-background =	$background;
+  //Link colors
+$link =	            $primary;
+// $link-invert =	    $primary-invert;
+$link-visited =	    $purple;
+$link-hover =	    $grey-darker;
+$link-hover-border =	$grey-darker;
+$link-focus =	    $grey-darker;
+$link-focus-border =	$primary;
+$link-active =	    $grey-darker;
+$link-active-border =$grey-dark;
+
+  //Typography
+$family-primary = $family-sans-serif;
+$family-code =    $family-monospace;
+$size-small =      $size-7;
+$size-normal =	  1rem;
+$size-medium =	  $size-5;
+$size-large =	  $size-4;
+
+//$colors = (
+//        white = ($white, $primary),
+//        black = ($black, $white),
+//        light = ($light, $light-invert),
+//        dark = ($dark, $dark-invert),
+//        primary = ($primary, $white),
+//        info = ($info, $white),
+//        success = ($success, $white),
+//        accented = ($accented, $white),
+//        warning = ($warning, $warning-invert),
+//        danger = ($danger, $white));
+
+$shadow = 0 2px 2px 0px rgba($black, .05);
+
+// Miscellaneous
+
+$easing = ease-out;
+$speed = 86ms;
+
+$radius-small = 2px;
+$radius       = 3px;
+$radius-large = 8px;
+
+// element
+// box
+
+$box-color = $text;
+$box-background-color = $white;
+$box-radius = $radius;
+$box-shadow = none; //0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1)
+$box-padding = 0; //1.25rem
+
+$box-link-hover-shadow = none; //0 2px 3px rgba($black, 0.1), 0 0 0 1px $link
+$box-link-active-shadow = none; //inset 0 1px 2px rgba($black, 0.2), 0 0 0 1px $link
+
+// grid
+// columns
+
+$column-gap = 0;
+
+//mixins
+border-box()
+  box-sizing border-box
+
+deg45()
+  transform rotate(45deg)
+
+fl-left()
+  display flex
+  align-items center
+
+
+fl-center()
+  display flex
+  align-items center
+  justify-content center
+
+fl-between()
+  display flex
+  align-items center
+  justify-content space-between
+
+fl-right()
+  display flex
+  align-items center
+  justify-content flex-end
+
+cover-all()
+  bottom 0
+  left 0
+  position absolute
+  right 0
+  top 0
+
+txt-ellipsis()
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+
+
+fnt(color, size, weight, align)
+  color color
+  font-size size
+  font-weight weight
+  text-align align
+
+circle(size)
+  border-radius 50%
+  flex: 0 0 auto;
+  height (size)px
+  width (size)px
+
+size(h, w)
+  height (h)px
+  width (w)px
+
+//diamond()
+//  &:before
+//    content: '';
+//    display: block;
+//    position: absolute;
+//    bottom -7px;
+//    left 25px;
+//    width 0;
+//    border-width 7px 7px 0;
+//    border-style solid;
+//    border-color $border transparent;
+//
+//  &:after
+//    content: "";
+//    display: block;
+//    position: absolute;
+//    bottom: -6px;
+//    left: 26px;
+//    width: 0;
+//    border-width: 6px 6px 0;
+//    border-style: solid;
+//    border-color: $white transparent;
+
+
+// Responsiveness
+// The container horizontal gap, which acts as the offset for breakpoints
+$gap = 32px;
+// 960, 1152, and 1344 have been chosen because they are divisible by both 12 and 16
+$tablet = 769px;
+// 960px container + 3rem
+$desktop = 960px + (2 * $gap);
+// 1152px container + 3rem
+$widescreen = 1152px + (2 * $gap);
+// 1344px container + 3rem
+$fullhd = 1344px + (2 * $gap);
+
+// $tablet = 769px
+// $widescreen = 1152px
+
+tablet()
+  @media (max-width: $tablet)
+    {block}
+desktop()
+  @media (min-width: $tablet + 1) and (max-width: $widescreen)
+    {block}
+widescreen()
+  @media (min-width: $widescreen + 1)
+    {block}
+
+/* use this
++tablet() {
+  ...
+}
++desktop() {
+  ...
+}
++widescreen() {
+  ...
+}
+*/

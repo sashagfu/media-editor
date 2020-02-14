@@ -1,0 +1,17 @@
+#import "../../projects/fragments/projectAssets.graphql"
+#import "../../projects/fragments/projectComments.graphql"
+#import "../../projects/fragments/projectDetails.graphql"
+#import "../../projects/fragments/projectGeneric.graphql"
+#import "../../projects/fragments/projectLikes.graphql"
+#import "../../projects/fragments/projectTags.graphql"
+
+fragment userProjects on User {
+    projects {
+        ...projectAssets
+        ...projectComments
+        ...projectDetails
+        ...projectGeneric
+        ...projectLikes
+        ...projectTags
+    }
+}

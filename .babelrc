@@ -1,0 +1,11 @@
+{
+  "presets": [
+    "react",
+    "env",
+    "flow-vue"
+  ],
+  "plugins": [
+    "transform-object-rest-spread"
+  ],
+  "comments": false
+}

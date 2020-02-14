@@ -1,0 +1,59 @@
+/* Corner radius */
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+  border-radius: 3px;
+}
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-right,
+.ui-corner-tr {
+  border-top-right-radius: 4px;
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+  border-bottom-left-radius: 4px;
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+  border-bottom-right-radius: 4px;
+}
+
+.mentions-autocomplete{
+  background-color: $background;
+  border: 1px solid $border;
+  box-shadow: 0 0 5px $grey-lighter;
+  color: $black-ter;
+  cursor: default;
+  display: block;
+  list-style: none;
+  margin: 0;
+  max-height: 35rem;
+  max-width: 20%;
+  outline: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 2px;
+  position: absolute;
+  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+  z-index: 100;
+}
+
+.mentions-autocomplete li.ui-menu-item{
+  border-bottom: 1px solid $border;
+  cursor: pointer;
+}
+
+.mentions-autocomplete li.ui-menu-item:last-child{
+  border-bottom: none;
+}
+
+.mentions-autocomplete__img{
+  width: 10%;
+  margin: 2% 1%;
+}

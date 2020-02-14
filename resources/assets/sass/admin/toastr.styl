@@ -1,0 +1,63 @@
+@import '../front/components/bulma-theme';
+
+.toast-message a,
+.toast-message label {
+  color: $white;
+}
+
+.toast-message a:hover {
+  color: $grey-lighter;
+}
+
+.toast-close-button {
+  color: $white;
+  -webkit-text-shadow: 0 1px 0 $white;
+  text-shadow: 0 1px 0 $white;
+}
+
+.toast-close-button:hover,
+.toast-close-button:focus {
+  color: $black;
+}
+
+/* Additional properties for button version
+ iOS requires the button element instead of an anchor tag.
+ If you want the anchor version, it requires `href="#"`. */
+
+#toast-container > div {
+  -moz-box-shadow: 0 0 12px $grey-middle;
+  -webkit-box-shadow: 0 0 12px $grey-middle;
+  box-shadow: 0 0 12px $grey-middle;
+  color: $white;
+}
+
+#toast-container > :hover {
+  -moz-box-shadow: 0 0 12px $black;
+  -webkit-box-shadow: 0 0 12px $black;
+  box-shadow: 0 0 12px $black;
+}
+
+.toast {
+  background-color: $black-bis;
+}
+
+.toast-success {
+  background-color: $success; //#51a351;
+}
+
+.toast-error {
+  background-color: $danger; //#bd362f;
+}
+
+.toast-info {
+  background-color: $info; //#2f96b4;
+}
+
+.toast-warning {
+  background-color: $warning; //#f89406;
+}
+
+.toast-progress {
+  background-color: $black-bis;
+}
+

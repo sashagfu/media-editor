@@ -1,0 +1,5 @@
+fragment commentDetails on Comment {
+    isLiked
+    createdAtDiff
+    repliesLength
+}

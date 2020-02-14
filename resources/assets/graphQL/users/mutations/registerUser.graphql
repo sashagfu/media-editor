@@ -1,0 +1,8 @@
+mutation registerUser($email: String!, $termsConditions: Boolean!) {
+    registerUser(email: $email, termsConditions: $termsConditions) {
+        status
+        message
+        statusCode
+        redirectUrl
+    }
+}

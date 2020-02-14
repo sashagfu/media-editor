@@ -1,0 +1,7 @@
+#import "../../users/fragments/userGeneric.graphql"
+
+mutation handleProjectStar($id: ID!) {
+    handleProjectStar(id: $id) {
+        ...userGeneric
+    }
+}

@@ -1,0 +1,22 @@
+#import "./userGeneric.graphql"
+
+fragment userAmount on User {
+    donationsSum
+    balance
+    paypalEmail
+    paypalVerified
+    autoAccepts {
+        ...userGeneric
+    }
+    autoDeclines {
+        ...userGeneric
+    }
+    sponsors {
+        ...userGeneric
+        donated
+    }
+    sponsorship {
+        ...userGeneric
+        donated
+    }
+}

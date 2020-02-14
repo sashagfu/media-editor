@@ -1,0 +1,7 @@
+#import "../fragments/threadGeneric.graphql"
+
+mutation createParticipants($threadId: ID!, $ids: [ID]!, $userId: ID) {
+    createParticipants (threadId: $threadId, ids: $ids) {
+        ...threadGeneric
+    }
+}

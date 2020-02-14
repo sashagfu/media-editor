@@ -1,0 +1,39 @@
+#import "../../clips/fragments/clipGeneric.graphql"
+#import "../../comments/fragments/commentGeneric.graphql"
+#import "../../projects/fragments/projectGeneric.graphql"
+#import "../../projects/fragments/projectAssets.graphql"
+#import "../../donations/fragments/transactionGeneric.graphql"
+#import "../../messages/fragments/messageGeneric.graphql"
+#import "../../users/fragments/userGeneric.graphql"
+#import "../../stars/fragments/starGeneric.graphql"
+
+fragment notificationData on Notification {
+    data {
+        typeName
+        star {
+            ...starGeneric
+        }
+        asset {
+            ...clipGeneric
+        }
+        comment {
+            ...commentGeneric
+        }
+        user {
+            ...userGeneric
+        }
+        project {
+            ...projectGeneric
+            ...projectAssets
+        }
+        donation {
+            ...transactionGeneric
+        }
+        message {
+            ...messageGeneric
+        }
+        follower {
+            ...userGeneric
+        }
+    }
+}

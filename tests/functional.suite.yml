@@ -1,0 +1,21 @@
+# Codeception Test Suite Configuration
+#
+# Suite for functional (integration) tests
+# Emulate web requests and make application process them
+# Include one of framework modules (Symfony2, Yii2, Laravel5) to use it
+
+class_name: FunctionalTester
+modules:
+    enabled:
+        - Laravel5:
+            environment_file: .env
+            part: ORM
+            # all database queries will be run in a transaction, which will be rolled back at the end of each test
+            cleanup: true
+            run_database_migrations: false
+            run_database_seeder: false
+            disable_middleware: false
+            disable_events: false
+            disable_model_events: false
+            url: http://127.0.0.1:8000
+        - \Helper\Functional

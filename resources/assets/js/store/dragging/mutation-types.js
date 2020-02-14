@@ -1,0 +1,3 @@
+export const SET_ALL = 'SET_ALL';
+export const RESET_DRAGGING = 'RESET_DRAGGING';
+export const SET_DRAGGING_POSITION = 'SET_DRAGGING_POSITION';

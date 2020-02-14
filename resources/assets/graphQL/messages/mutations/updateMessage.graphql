@@ -1,0 +1,7 @@
+#import "../fragments/messageGeneric.graphql"
+
+mutation updateMessage($message: MessageInput!) {
+    updateMessage (message: $message) {
+        ...messageGeneric
+    }
+}

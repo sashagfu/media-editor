@@ -1,0 +1,23 @@
+#import "../fragments/projectAssets.graphql"
+#import "../fragments/projectAuthor.graphql"
+#import "../fragments/projectComments.graphql"
+#import "../fragments/projectDetails.graphql"
+#import "../fragments/projectGeneric.graphql"
+#import "../fragments/projectStatus.graphql"
+#import "../fragments/projectTags.graphql"
+#import "../fragments/projectLikes.graphql"
+#import "../fragments/projectValue.graphql"
+
+query fetchMyFeed {
+    fetchMyFeed {
+        ...projectAssets
+        ...projectAuthor
+        ...projectComments
+        ...projectDetails
+        ...projectGeneric
+        ...projectStatus
+        ...projectTags
+        ...projectLikes
+        ...projectValue
+    }
+}

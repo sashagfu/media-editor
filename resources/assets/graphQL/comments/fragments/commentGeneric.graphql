@@ -1,0 +1,7 @@
+fragment commentGeneric on Comment {
+    id
+    uuid
+    text
+    projectId
+    parentId
+}

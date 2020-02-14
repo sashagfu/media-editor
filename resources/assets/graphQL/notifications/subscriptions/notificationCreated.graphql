@@ -1,0 +1,9 @@
+#import "../fragments/notificationGeneric.graphql"
+#import "../fragments/notificationData.graphql"
+
+subscription notificationCreated($userId: ID!) {
+    notificationCreated(userId: $userId) {
+        ...notificationGeneric
+        ...notificationData
+    }
+}

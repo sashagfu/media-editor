@@ -1,0 +1,11 @@
+#import "../fragments/projectGeneric.graphql"
+#import "../fragments/projectTags.graphql"
+#import "../fragments/projectValue.graphql"
+
+mutation updateProject($project: ProjectInput!) {
+    updateProject(project: $project) {
+        ...projectGeneric
+        ...projectTags
+        ...projectValue
+    }
+}

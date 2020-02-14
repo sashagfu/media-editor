@@ -1,0 +1,13 @@
+#import "../../donations/fragments/transactionGeneric.graphql"
+#import "../../donations/fragments/transactionUsers.graphql"
+
+fragment userDonations on User {
+    incomingDonations {
+        ...transactionGeneric
+        ...transactionUsers
+    }
+    outcomingDonations {
+        ...transactionGeneric
+        ...transactionUsers
+    }
+}

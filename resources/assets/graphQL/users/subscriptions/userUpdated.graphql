@@ -1,0 +1,11 @@
+#import "../../users/fragments/userDetails.graphql"
+#import "../../users/fragments/userGeneric.graphql"
+#import "../../users/fragments/userAmount.graphql"
+
+subscription userUpdated($userId: ID!) {
+  userUpdated(userId: $userId) {
+    ...userDetails
+    ...userGeneric
+    ...userAmount
+  }
+}

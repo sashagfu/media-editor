@@ -1,0 +1,358 @@
+/* BEM support Func
+ -------------------------- */
+/* Element Chalk Variables */
+/* use this
+@include respond-to(tablet) {
+
+}
+@include respond-to(desktop) {
+
+}
+@include respond-to(widescreen) {
+
+}
+*/
+/*
+$black:       hsl(201, 12%, 4%);  //#090b0b
+$black-bis:   hsl(201, 12%, 7%);  //#101214
+$black-ter:   hsl(201, 12%, 14%); //#1f2528
+
+$grey-darker: hsl(201, 12%, 21%); //#2f373c
+$grey-dark:   hsl(201, 12%, 29%); //#414d53
+$grey-bis:    hsl(201, 12%, 38%); //#55646d
+$grey:        hsl(201, 12%, 48%); //#6c7f89
+$grey-middle: hsl(201, 12%, 60%); //#8d9da5
+$grey-light:  hsl(201, 12%, 71%); //#acb8be
+$grey-lighter:hsl(201, 12%, 86%); //#d7dde0
+
+$white-shadow:hsl(201, 12%, 90%); //#e2e6e9
+$white-ter:   hsl(201, 12%, 94%); //#eef0f2
+$white-bis:   hsl(201, 12%, 98%); //#f9fafb
+$white:       hsl(201, 12%, 100%); //#fff */
+/* Transition
+-------------------------- */
+/* Colors
+-------------------------- */
+/* 53a8ff */
+/* 66b1ff */
+/* 79bbff */
+/* 8cc5ff */
+/* a0cfff */
+/* b3d8ff */
+/* c6e2ff */
+/* d9ecff */
+/* ecf5ff */
+/* Link
+-------------------------- */
+/* Background
+-------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Fill
+-------------------------- */
+/* Font
+-------------------------- */
+/* Size
+-------------------------- */
+/* z-index
+-------------------------- */
+/* Disable base
+-------------------------- */
+/* Icon
+-------------------------- */
+/* Checkbox
+-------------------------- */
+/* Radio
+-------------------------- */
+/* Select
+-------------------------- */
+/* Alert
+-------------------------- */
+/* Message Box
+-------------------------- */
+/* Message
+-------------------------- */
+/* Notification
+-------------------------- */
+/* Input
+-------------------------- */
+/* Cascader
+-------------------------- */
+/* Group
+-------------------------- */
+/* Tab
+-------------------------- */
+/* Button
+-------------------------- */
+/* cascader
+-------------------------- */
+/* Switch
+-------------------------- */
+/* Dialog
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Popover
+-------------------------- */
+/* Tooltip
+-------------------------- */
+/* Tag
+-------------------------- */
+/* Tree
+-------------------------- */
+/* Dropdown
+-------------------------- */
+/* Badge
+-------------------------- */
+/* Card
+--------------------------*/
+/* Slider
+--------------------------*/
+/* Steps
+--------------------------*/
+/* Menu
+--------------------------*/
+/* Rate
+--------------------------*/
+/* DatePicker
+--------------------------*/
+/* Loading
+--------------------------*/
+/* Scrollbar
+--------------------------*/
+/* Carousel
+--------------------------*/
+/* Collapse
+--------------------------*/
+/* Transfer
+--------------------------*/
+/* Header
+  --------------------------*/
+/* Footer
+--------------------------*/
+/* Main
+--------------------------*/
+/* Break-point
+--------------------------*/
+/* Break-points
+ -------------------------- */
+/* Scrollbar
+ -------------------------- */
+/* Placeholder
+ -------------------------- */
+/* BEM
+ -------------------------- */
+/* Element Chalk Variables */
+/* use this
+@include respond-to(tablet) {
+
+}
+@include respond-to(desktop) {
+
+}
+@include respond-to(widescreen) {
+
+}
+*/
+/*
+$black:       hsl(201, 12%, 4%);  //#090b0b
+$black-bis:   hsl(201, 12%, 7%);  //#101214
+$black-ter:   hsl(201, 12%, 14%); //#1f2528
+
+$grey-darker: hsl(201, 12%, 21%); //#2f373c
+$grey-dark:   hsl(201, 12%, 29%); //#414d53
+$grey-bis:    hsl(201, 12%, 38%); //#55646d
+$grey:        hsl(201, 12%, 48%); //#6c7f89
+$grey-middle: hsl(201, 12%, 60%); //#8d9da5
+$grey-light:  hsl(201, 12%, 71%); //#acb8be
+$grey-lighter:hsl(201, 12%, 86%); //#d7dde0
+
+$white-shadow:hsl(201, 12%, 90%); //#e2e6e9
+$white-ter:   hsl(201, 12%, 94%); //#eef0f2
+$white-bis:   hsl(201, 12%, 98%); //#f9fafb
+$white:       hsl(201, 12%, 100%); //#fff */
+/* Transition
+-------------------------- */
+/* Colors
+-------------------------- */
+/* 53a8ff */
+/* 66b1ff */
+/* 79bbff */
+/* 8cc5ff */
+/* a0cfff */
+/* b3d8ff */
+/* c6e2ff */
+/* d9ecff */
+/* ecf5ff */
+/* Link
+-------------------------- */
+/* Background
+-------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Fill
+-------------------------- */
+/* Font
+-------------------------- */
+/* Size
+-------------------------- */
+/* z-index
+-------------------------- */
+/* Disable base
+-------------------------- */
+/* Icon
+-------------------------- */
+/* Checkbox
+-------------------------- */
+/* Radio
+-------------------------- */
+/* Select
+-------------------------- */
+/* Alert
+-------------------------- */
+/* Message Box
+-------------------------- */
+/* Message
+-------------------------- */
+/* Notification
+-------------------------- */
+/* Input
+-------------------------- */
+/* Cascader
+-------------------------- */
+/* Group
+-------------------------- */
+/* Tab
+-------------------------- */
+/* Button
+-------------------------- */
+/* cascader
+-------------------------- */
+/* Switch
+-------------------------- */
+/* Dialog
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Popover
+-------------------------- */
+/* Tooltip
+-------------------------- */
+/* Tag
+-------------------------- */
+/* Tree
+-------------------------- */
+/* Dropdown
+-------------------------- */
+/* Badge
+-------------------------- */
+/* Card
+--------------------------*/
+/* Slider
+--------------------------*/
+/* Steps
+--------------------------*/
+/* Menu
+--------------------------*/
+/* Rate
+--------------------------*/
+/* DatePicker
+--------------------------*/
+/* Loading
+--------------------------*/
+/* Scrollbar
+--------------------------*/
+/* Carousel
+--------------------------*/
+/* Collapse
+--------------------------*/
+/* Transfer
+--------------------------*/
+/* Header
+  --------------------------*/
+/* Footer
+--------------------------*/
+/* Main
+--------------------------*/
+/* Break-point
+--------------------------*/
+.el-notification {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 330px;
+  padding: 14px 26px 14px 13px;
+  border-radius: 8px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #ebeef5;
+  position: fixed;
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  -webkit-transition: opacity .3s, left .3s, right .3s, top 0.4s, bottom .3s, -webkit-transform .3s;
+  transition: opacity .3s, left .3s, right .3s, top 0.4s, bottom .3s, -webkit-transform .3s;
+  transition: opacity .3s, transform .3s, left .3s, right .3s, top 0.4s, bottom .3s;
+  transition: opacity .3s, transform .3s, left .3s, right .3s, top 0.4s, bottom .3s, -webkit-transform .3s;
+  overflow: hidden; }
+  .el-notification.right {
+    right: 16px; }
+  .el-notification.left {
+    left: 16px; }
+  .el-notification__group {
+    margin-left: 13px; }
+  .el-notification__title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #4a4a4a;
+    margin: 0; }
+  .el-notification__content {
+    font-size: 14px;
+    line-height: 21px;
+    margin: 6px 0 0 0;
+    color: #7a7a7a;
+    text-align: justify; }
+    .el-notification__content p {
+      margin: 0; }
+  .el-notification__icon {
+    height: 24px;
+    width: 24px;
+    font-size: 24px; }
+  .el-notification__closeBtn {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    cursor: pointer;
+    color: #b5b5b5;
+    font-size: 16px; }
+    .el-notification__closeBtn:hover {
+      color: #7a7a7a; }
+  .el-notification .el-icon-success {
+    color: #23d160; }
+  .el-notification .el-icon-error {
+    color: #ff4d5e; }
+  .el-notification .el-icon-info {
+    color: #00b7ff; }
+  .el-notification .el-icon-warning {
+    color: #ffd52e; }
+
+.el-notification-fade-enter.right {
+  right: 0;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%); }
+
+.el-notification-fade-enter.left {
+  left: 0;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%); }
+
+.el-notification-fade-leave-active {
+  opacity: 0; }

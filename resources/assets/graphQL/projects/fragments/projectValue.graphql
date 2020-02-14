@@ -1,0 +1,81 @@
+#import "../../audios/fragments/audioGeneric.graphql"
+#import "../../images/fragments/imageGeneric.graphql"
+#import "../../videos/fragments/videoGeneric.graphql"
+#import "../../videos/fragments/videoDetails.graphql"
+#import "../../slides/fragments/slideGeneric.graphql"
+#import "../../slides/fragments/slideTexts.graphql"
+#import "../../clips/fragments/clipGeneric.graphql"
+#import "../../clips/fragments/clipDetails.graphql"
+#import "../../clips/fragments/clipMedia.graphql"
+
+fragment projectValue on Project {
+    value {
+        id
+        uuid
+        projectId
+        objectId
+        object {
+            ... on Audio {
+                ...audioGeneric
+            }
+            ... on Video {
+                ...videoGeneric
+                ...videoDetails
+            }
+            ... on Image {
+                ...imageGeneric
+            }
+            ... on Slide {
+                ...slideGeneric
+                ...slideTexts
+            }
+            ... on Asset {
+                ...clipGeneric
+                ...clipDetails
+                ...clipMedia
+            }
+        }
+        file {
+            ... on Audio {
+                ...audioGeneric
+            }
+            ... on Video {
+                ...videoGeneric
+                ...videoDetails
+            }
+            ... on Image {
+                ...imageGeneric
+            }
+            ... on Slide {
+                ...slideGeneric
+                ...slideTexts
+            }
+            ... on Asset {
+                ...clipGeneric
+                ...clipDetails
+                ...clipMedia
+            }
+        }
+        type
+        layerId
+        position
+        startFrom
+        length
+        transform {
+            scale
+            position {
+                x
+                y
+            }
+            size {
+                width
+                height
+            }
+        }
+        volumeControl {
+            id
+            length
+            level
+        }
+    }
+}

@@ -1,0 +1,131 @@
+
+extend type Query @group(middleware: ["auth:api"]) {
+  fetchSlides(id: ID!): [Slide]
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  createSlide(
+    slide: SlideInput!
+    projectId: ID!
+  ): Slide @field(resolver: "App\\Http\\GraphQL\\Mutations\\SlideMutator@create")
+
+  updateSlide(
+    slide: SlideInput
+  ): Slide @field(resolver: "App\\Http\\GraphQL\\Mutations\\SlideMutator@update")
+
+  deleteSlide(
+    id: ID!
+  ): Slide @delete
+
+}
+
+type Slide {
+  id: ID
+  uuid: String
+  projectId: ID
+  name: String
+  fileType: String @field(resolver: "App\\Http\\GraphQL\\Types\\SlideType@fileType")
+  effects: Effects
+  texts: [Text]
+  items: [Text] @field(resolver: "App\\Http\\GraphQL\\Types\\SlideType@texts")
+  canvasSize: CanvasSize
+}
+
+type Effects {
+  fadeIn: EffectOptions
+  fadeOut: EffectOptions
+}
+
+type EffectOptions {
+  active: Boolean
+  duration: Float
+}
+
+type Text {
+  id: ID
+  uuid: String
+  projectId: ID
+  slideId: ID
+  text: String @field(resolver: "App\\Http\\GraphQL\\Types\\TextType@text")
+  fontFamily: String @field(resolver: "App\\Http\\GraphQL\\Types\\TextType@fontFamily")
+  fontStyle: String @field(resolver: "App\\Http\\GraphQL\\Types\\TextType@fontStyle")
+  position: TextPosition
+  fontSize: Int @field(resolver: "App\\Http\\GraphQL\\Types\\TextType@fontSize")
+  fontWeight: String
+  textAlign: String @field(resolver: "App\\Http\\GraphQL\\Types\\TextType@textAlign")
+  color: String @field(resolver: "App\\Http\\GraphQL\\Types\\TextType@color")
+  background: String
+  size: TextBoxSize @field(resolver: "App\\Http\\GraphQL\\Types\\TextType@size")
+}
+
+type TextPosition {
+  x: Int
+  y: Int
+}
+
+type TextBoxSize {
+  h: Float
+  w: Float
+}
+
+type CanvasSize {
+  width: Int
+  height: Int
+}
+
+# Input types
+
+input SlideInput {
+  id: ID
+  uuid: String
+  projectId: ID
+  name: String
+  fileType: String
+  effects: EffectsInput
+  texts: [TextInput]
+  items: [TextInput]
+  canvasSize: CanvasSizeInput
+}
+
+input EffectsInput {
+  fadeIn: EffectOptionsInput
+  fadeOut: EffectOptionsInput
+}
+
+input EffectOptionsInput {
+  active: Boolean,
+  duration: Float!
+}
+
+input TextInput {
+  id: ID
+  uuid: String
+  projectId: ID
+  slideId: ID
+  text: String
+  fontFamily: String
+  fontStyle: String
+  position: TextPositionInput
+  fontSize: Int
+  fontWeight: String
+  textAlign: String
+  color: String
+  background: String
+  size: TextBoxSizeInput
+}
+
+input TextPositionInput {
+  x: Int
+  y: Int
+}
+
+input TextBoxSizeInput {
+  h: Float
+  w: Float
+}
+
+input CanvasSizeInput {
+  width: Int
+  height: Int
+}

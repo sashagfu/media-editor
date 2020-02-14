@@ -1,0 +1,5 @@
+mutation togglePinProject($id: ID!) {
+    togglePinProject (id: $id) {
+        pinned
+    }
+}

@@ -1,0 +1,11 @@
+#import "../fragments/userDetails.graphql"
+#import "../fragments/userGeneric.graphql"
+#import "../fragments/userFollow.graphql"
+
+mutation updateUser($user: UserInput) {
+    updateUser(user: $user) {
+        ...userDetails
+        ...userGeneric
+        ...userFollow
+    }
+}

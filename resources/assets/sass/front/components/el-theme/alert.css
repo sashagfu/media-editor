@@ -1,0 +1,362 @@
+/* BEM support Func
+ -------------------------- */
+/* Element Chalk Variables */
+/* use this
+@include respond-to(tablet) {
+
+}
+@include respond-to(desktop) {
+
+}
+@include respond-to(widescreen) {
+
+}
+*/
+/*
+$black:       hsl(201, 12%, 4%);  //#090b0b
+$black-bis:   hsl(201, 12%, 7%);  //#101214
+$black-ter:   hsl(201, 12%, 14%); //#1f2528
+
+$grey-darker: hsl(201, 12%, 21%); //#2f373c
+$grey-dark:   hsl(201, 12%, 29%); //#414d53
+$grey-bis:    hsl(201, 12%, 38%); //#55646d
+$grey:        hsl(201, 12%, 48%); //#6c7f89
+$grey-middle: hsl(201, 12%, 60%); //#8d9da5
+$grey-light:  hsl(201, 12%, 71%); //#acb8be
+$grey-lighter:hsl(201, 12%, 86%); //#d7dde0
+
+$white-shadow:hsl(201, 12%, 90%); //#e2e6e9
+$white-ter:   hsl(201, 12%, 94%); //#eef0f2
+$white-bis:   hsl(201, 12%, 98%); //#f9fafb
+$white:       hsl(201, 12%, 100%); //#fff */
+/* Transition
+-------------------------- */
+/* Colors
+-------------------------- */
+/* 53a8ff */
+/* 66b1ff */
+/* 79bbff */
+/* 8cc5ff */
+/* a0cfff */
+/* b3d8ff */
+/* c6e2ff */
+/* d9ecff */
+/* ecf5ff */
+/* Link
+-------------------------- */
+/* Background
+-------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Fill
+-------------------------- */
+/* Font
+-------------------------- */
+/* Size
+-------------------------- */
+/* z-index
+-------------------------- */
+/* Disable base
+-------------------------- */
+/* Icon
+-------------------------- */
+/* Checkbox
+-------------------------- */
+/* Radio
+-------------------------- */
+/* Select
+-------------------------- */
+/* Alert
+-------------------------- */
+/* Message Box
+-------------------------- */
+/* Message
+-------------------------- */
+/* Notification
+-------------------------- */
+/* Input
+-------------------------- */
+/* Cascader
+-------------------------- */
+/* Group
+-------------------------- */
+/* Tab
+-------------------------- */
+/* Button
+-------------------------- */
+/* cascader
+-------------------------- */
+/* Switch
+-------------------------- */
+/* Dialog
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Popover
+-------------------------- */
+/* Tooltip
+-------------------------- */
+/* Tag
+-------------------------- */
+/* Tree
+-------------------------- */
+/* Dropdown
+-------------------------- */
+/* Badge
+-------------------------- */
+/* Card
+--------------------------*/
+/* Slider
+--------------------------*/
+/* Steps
+--------------------------*/
+/* Menu
+--------------------------*/
+/* Rate
+--------------------------*/
+/* DatePicker
+--------------------------*/
+/* Loading
+--------------------------*/
+/* Scrollbar
+--------------------------*/
+/* Carousel
+--------------------------*/
+/* Collapse
+--------------------------*/
+/* Transfer
+--------------------------*/
+/* Header
+  --------------------------*/
+/* Footer
+--------------------------*/
+/* Main
+--------------------------*/
+/* Break-point
+--------------------------*/
+/* Break-points
+ -------------------------- */
+/* Scrollbar
+ -------------------------- */
+/* Placeholder
+ -------------------------- */
+/* BEM
+ -------------------------- */
+/* Element Chalk Variables */
+/* use this
+@include respond-to(tablet) {
+
+}
+@include respond-to(desktop) {
+
+}
+@include respond-to(widescreen) {
+
+}
+*/
+/*
+$black:       hsl(201, 12%, 4%);  //#090b0b
+$black-bis:   hsl(201, 12%, 7%);  //#101214
+$black-ter:   hsl(201, 12%, 14%); //#1f2528
+
+$grey-darker: hsl(201, 12%, 21%); //#2f373c
+$grey-dark:   hsl(201, 12%, 29%); //#414d53
+$grey-bis:    hsl(201, 12%, 38%); //#55646d
+$grey:        hsl(201, 12%, 48%); //#6c7f89
+$grey-middle: hsl(201, 12%, 60%); //#8d9da5
+$grey-light:  hsl(201, 12%, 71%); //#acb8be
+$grey-lighter:hsl(201, 12%, 86%); //#d7dde0
+
+$white-shadow:hsl(201, 12%, 90%); //#e2e6e9
+$white-ter:   hsl(201, 12%, 94%); //#eef0f2
+$white-bis:   hsl(201, 12%, 98%); //#f9fafb
+$white:       hsl(201, 12%, 100%); //#fff */
+/* Transition
+-------------------------- */
+/* Colors
+-------------------------- */
+/* 53a8ff */
+/* 66b1ff */
+/* 79bbff */
+/* 8cc5ff */
+/* a0cfff */
+/* b3d8ff */
+/* c6e2ff */
+/* d9ecff */
+/* ecf5ff */
+/* Link
+-------------------------- */
+/* Background
+-------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Fill
+-------------------------- */
+/* Font
+-------------------------- */
+/* Size
+-------------------------- */
+/* z-index
+-------------------------- */
+/* Disable base
+-------------------------- */
+/* Icon
+-------------------------- */
+/* Checkbox
+-------------------------- */
+/* Radio
+-------------------------- */
+/* Select
+-------------------------- */
+/* Alert
+-------------------------- */
+/* Message Box
+-------------------------- */
+/* Message
+-------------------------- */
+/* Notification
+-------------------------- */
+/* Input
+-------------------------- */
+/* Cascader
+-------------------------- */
+/* Group
+-------------------------- */
+/* Tab
+-------------------------- */
+/* Button
+-------------------------- */
+/* cascader
+-------------------------- */
+/* Switch
+-------------------------- */
+/* Dialog
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Popover
+-------------------------- */
+/* Tooltip
+-------------------------- */
+/* Tag
+-------------------------- */
+/* Tree
+-------------------------- */
+/* Dropdown
+-------------------------- */
+/* Badge
+-------------------------- */
+/* Card
+--------------------------*/
+/* Slider
+--------------------------*/
+/* Steps
+--------------------------*/
+/* Menu
+--------------------------*/
+/* Rate
+--------------------------*/
+/* DatePicker
+--------------------------*/
+/* Loading
+--------------------------*/
+/* Scrollbar
+--------------------------*/
+/* Carousel
+--------------------------*/
+/* Collapse
+--------------------------*/
+/* Transfer
+--------------------------*/
+/* Header
+  --------------------------*/
+/* Footer
+--------------------------*/
+/* Main
+--------------------------*/
+/* Break-point
+--------------------------*/
+.el-alert {
+  width: 100%;
+  padding: 8px 16px;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 3px;
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+  opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s; }
+  .el-alert.is-center {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .el-alert--success {
+    background-color: #e9faef;
+    color: #23d160; }
+    .el-alert--success .el-alert__description {
+      color: #23d160; }
+  .el-alert--info {
+    background-color: #e6f8ff;
+    color: #00b7ff; }
+    .el-alert--info .el-alert__description {
+      color: #00b7ff; }
+  .el-alert--warning {
+    background-color: #fffbea;
+    color: #ffd52e; }
+    .el-alert--warning .el-alert__description {
+      color: #ffd52e; }
+  .el-alert--error {
+    background-color: #ffedef;
+    color: #ff4d5e; }
+    .el-alert--error .el-alert__description {
+      color: #ff4d5e; }
+  .el-alert__content {
+    display: table-cell;
+    padding: 0 8px; }
+  .el-alert__icon {
+    font-size: 16px;
+    width: 16px; }
+    .el-alert__icon.is-big {
+      font-size: 28px;
+      width: 28px; }
+  .el-alert__title {
+    font-size: 13px;
+    line-height: 18px; }
+    .el-alert__title.is-bold {
+      font-weight: bold; }
+  .el-alert .el-alert__description {
+    font-size: 12px;
+    margin: 5px 0 0 0; }
+  .el-alert__closebtn {
+    font-size: 12px;
+    color: #fff;
+    opacity: 1;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    cursor: pointer; }
+    .el-alert__closebtn.is-customed {
+      font-style: normal;
+      font-size: 13px;
+      top: 9px; }
+
+.el-alert-fade-enter,
+.el-alert-fade-leave-active {
+  opacity: 0; }

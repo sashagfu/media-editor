@@ -1,0 +1,14 @@
+#import "../../users/fragments/userGeneric.graphql"
+#import "../../users/fragments/userDonations.graphql"
+#import "../../users/fragments/userFollow.graphql"
+#import "../../users/fragments/userDetails.graphql"
+
+
+query fetchOutcomingDonationsHistory{
+    fetchOutcomingDonationsHistory {
+        ...userGeneric
+        ...userDonations
+        ...userFollow
+        ...userDetails
+    }
+}

@@ -1,0 +1,27 @@
+.me-media-item-actions {
+  fl-between();
+  background-color: $grey-middle;
+  border-radius: 3px 3px 3px 0;
+  cursor: default;
+  flex-direction: row;
+  height: 32px;
+  padding: 4px 5px;
+  transition: color .3s;
+
+  &__item {
+    color: $white-bis;
+    margin: 0 4px;
+    &:hover {
+      color: $white-ter;
+      cursor: pointer;
+    }
+
+    & + & {
+      margin-left: 5px;
+      &--delete {
+        margin-left: 16px;
+        padding-top: 2px;
+      }
+    }
+  }
+}

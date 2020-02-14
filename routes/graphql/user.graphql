@@ -1,0 +1,133 @@
+
+extend type Query @group(middleware: ["auth:api"]) {
+  fetchMe: User
+  fetchUsers(term: String!): [User]
+
+#  FOLLOWERS
+  fetchFollowers(userId: ID): [User]
+  fetchFollowing(userId: ID): [User]
+
+#  SPONSORS
+  fetchTopSponsors(userId: ID!, amount: Int, period: Int): [User]
+  fetchGlobalTopSponsors(amount: Int, period: Int): [User]
+}
+
+extend type Subscription @group(middleware: ["auth:api"]) {
+  userUpdated(userId: ID!): User
+  followerCreated(userId: ID!): User
+  followerDeleted(userId: ID!): User
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  updateUser (
+    user: UserInput
+  ): User @field(resolver: "App\\Http\\GraphQL\\Mutations\\UserMutator@update")
+
+  deleteUser(
+    id: ID @rules(apply: ["required"])
+  ): User @delete(model: "App\\Models\\User")
+
+  updateAvatar(
+    url: String
+  ): User @field(resolver: "App\\Http\\GraphQL\\Mutations\\UserMutator@createAvatar")
+
+  #    FOLLOWERS
+  createFollower(
+    userId: ID!,
+    followerId: ID
+  ): User @field(resolver: "App\\Http\\GraphQL\\Mutations\\UserMutator@follow")
+
+  deleteFollower(
+    userId: ID!,
+    followerId: ID
+  ): User @field(resolver: "App\\Http\\GraphQL\\Mutations\\UserMutator@unfollow")
+
+  changePassword(
+    oldPassword: String!
+    newPassword: String!
+  ): Response @field(resolver: "App\\Http\\GraphQL\\Mutations\\UserMutator@changePassword")
+
+}
+
+type User {
+  id: ID!
+  uuid: String
+  username: String!
+  email: String!
+  displayName: String @field(resolver: "App\\Http\\GraphQL\\Types\\UserType@displayName")
+  bio: String
+  avatar: String
+  balance: String
+  paypalEmail: String
+  paypalVerified: Boolean
+  isFollowing: Boolean
+  canBeFollowed: Boolean
+  followers: [User]
+  following: [User]
+  socials: Socials
+  quote: String
+  projects: [Project]
+  autoAccepts: [User]
+  autoDeclines: [User]
+  donationsSum: Float
+  incomingDonations(payerId: ID): [Transaction] @field(resolver: "App\\Http\\GraphQL\\Types\\UserType@incomingDonations")
+  outcomingDonations(payeeId: ID): [Transaction] @field(resolver: "App\\Http\\GraphQL\\Types\\UserType@outcomingDonations")
+  sponsors: [User]
+  sponsorship: [User]
+  donated: Int
+  settings: Settings
+  following: [User]
+  followers: [User]
+  totalFollowers: Int
+  totalFollowing: Int
+  notifications: [Notification]
+  unreadMessagesCount: Int
+  threads: Thread
+  unreadNotificationsCount: Int
+  notificationsCount: Int
+  createdAt: DateTime @field(resolver: "App\\Http\\GraphQL\\Types\\UserType@createdAt")
+  updatedAt: DateTime @field(resolver: "App\\Http\\GraphQL\\Types\\UserType@updatedAt")
+}
+
+type Socials {
+  googlePlus: String
+  facebook: String
+  instagram: String
+  linkedin: String
+  snapchat: String
+}
+
+# Input types
+
+input UserInput {
+  id: ID!
+  uuid: String
+  username: String! @rules(apply: ["max:20"])
+  email: String! @rules(apply: ["max:30","unique:users,display_name"])
+  displayName: String!
+  bio: String @rules(apply: ["max:150"])
+  avatar: String
+  balance: String
+  paypalEmail: String
+  paypalVerified: Boolean
+  isFollowing: Boolean
+  canBeFollowed: Boolean
+  followers: [UserInput]
+  following: [UserInput]
+  socials: SocialsInput
+  quote: String
+  projects: [ProjectInput]
+  incomingDonations: [TransactionInput]
+  createdAt: String
+  updatedAt: String
+  password: String
+}
+
+input SocialsInput {
+  googlePlus: String
+  facebook: String
+  instagram: String
+  linkedin: String
+  snapchat: String
+}

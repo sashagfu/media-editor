@@ -1,0 +1,9 @@
+#import "../fragments/projectStatus.graphql"
+#import "../fragments/projectGeneric.graphql"
+
+subscription projectUpdated($userId: ID!) {
+    projectUpdated(userId: $userId) {
+        ...projectGeneric
+        ...projectStatus
+    }
+}

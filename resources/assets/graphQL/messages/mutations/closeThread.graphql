@@ -1,0 +1,7 @@
+#import "../fragments/threadGeneric.graphql"
+
+mutation closeThread($id: ID!, $userId: ID) {
+    closeThread (id: $id) {
+        ...threadGeneric
+    }
+}

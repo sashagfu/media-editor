@@ -1,0 +1,29 @@
+.default-progress-bar {
+  height: 25px;
+  margin: 5px;
+  padding: 5px;
+  width: 100%;
+
+  &__width {
+    animation: animate-stripes 3s linear infinite;
+    background: linear-gradient(135deg, rgba($white, .15) 25%, transparent 25%,
+            transparent 50%, rgba($white, .15) 50%, rgba($white, .15) 75%,
+            transparent 75%, transparent) $turquoise;
+    background-size: 30px 30px;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba($white, .5) inset;
+    display: inline-block;
+    height: 100%;
+    transition: width .4s ease-in-out;
+    width: 100%;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 0;
+  }
+}

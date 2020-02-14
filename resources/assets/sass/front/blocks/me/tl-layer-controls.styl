@@ -1,0 +1,47 @@
+@import './variables'
+
+.me-tl-layer-controls {
+  background-color: $white;
+  border-bottom: 1px solid $border;
+  height: ($me-timeline-layer-height)px;
+  position: relative;
+  transition: height .3s;
+
+  &--height {
+    &--high {
+      height: ($me-timeline-layer-height--high)px;
+    }
+  }
+
+  &__volume {
+    bottom: 2px;
+    padding: 0 12px;
+    position: absolute;
+    width: 100%;
+  }
+
+  &__tools {
+    color: $grey-middle;
+    display: flex;
+    padding: 5px;
+    justify-content: flex-end;
+  }
+
+  &__tool-item {
+    cursor: pointer;
+  }
+
+  &__height {
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+
+  &__height-button {
+    color: $white-bis;
+  }
+
+  &__height-button-icon {
+    transition: transform .3s;
+  }
+}

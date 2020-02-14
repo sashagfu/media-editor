@@ -1,0 +1,9 @@
+fragment videoDetails on Video {
+    filePath
+    fileType
+    frames
+    isPerformance
+    spritePath
+    thumbPath
+    waveformData
+}

@@ -1,0 +1,34 @@
+#import "../../audios/fragments/audioGeneric.graphql"
+#import "../../clips/fragments/clipGeneric.graphql"
+
+#import "../../images/fragments/imageGeneric.graphql"
+#import "../../videos/fragments/videoGeneric.graphql"
+#import "../../videos/fragments/videoDetails.graphql"
+
+mutation createProjectFile(
+        $url: String!
+        $projectId: ID
+        $project: ProjectInput
+        $isReady: Boolean
+    ) {
+        createProjectFile(
+            url: $url
+            projectId: $projectId
+            project: $project
+            isReady: $isReady
+        ) {
+            ... on Audio {
+                ...audioGeneric
+            }
+            ... on Video {
+                ...videoGeneric
+                ...videoDetails
+            }
+            ... on Image {
+                ...imageGeneric
+            }
+            ...on Asset {
+                ...clipGeneric
+            }
+    }
+}

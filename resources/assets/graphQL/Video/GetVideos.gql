@@ -1,0 +1,12 @@
+query VideosQuery($authorId: Int!, $isSaved: Boolean, $isUploaded: Boolean) {
+    videos(authorId: $authorId, isUploaded: $isUploaded, isSaved: $isSaved) {
+        id,
+        authorId,
+        parentId,
+        name,
+        filePath,
+        spritePath,
+        thumbnailPath,
+        time,
+    }
+}

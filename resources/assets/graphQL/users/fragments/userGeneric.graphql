@@ -1,0 +1,8 @@
+fragment userGeneric on User {
+    id
+    uuid
+    username
+    displayName
+    avatar
+    email
+}

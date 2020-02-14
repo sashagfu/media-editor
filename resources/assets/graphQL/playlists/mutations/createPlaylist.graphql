@@ -1,0 +1,11 @@
+#import "../fragments/playlistGeneric.graphql"
+#import "../fragments/playlistAuthor.graphql"
+#import "../fragments/playlistProjects.graphql"
+
+mutation createPlaylist($playlist: PlaylistInput!) {
+  createPlaylist(playlist: $playlist) {
+    ...playlistGeneric
+    ...playlistAuthor
+    ...playlistProjects
+  }
+}

@@ -1,0 +1,11 @@
+#import "../../users/fragments/userDetails.graphql"
+#import "../../users/fragments/userGeneric.graphql"
+#import "../../users/fragments/userFollow.graphql"
+
+subscription followerCreated($userId: ID!) {
+    followerCreated(userId: $userId) {
+        ...userDetails
+        ...userGeneric
+        ...userFollow
+    }
+}

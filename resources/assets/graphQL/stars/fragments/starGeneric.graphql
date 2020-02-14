@@ -1,0 +1,19 @@
+#import "../../users/fragments/userGeneric.graphql"
+#import "../../users/fragments/userDetails.graphql"
+#import "../../comments/fragments/commentGeneric.graphql"
+#import "../../projects/fragments/projectGeneric.graphql"
+
+fragment starGeneric on Star {
+    starable {
+        ... on Project {
+            ...projectGeneric
+        }
+        ... on Comment {
+            ...commentGeneric
+        }
+    }
+    user {
+        ...userGeneric
+        ...userDetails
+    }
+}

@@ -1,0 +1,7 @@
+#import "../../users/fragments/userGeneric.graphql"
+
+fragment commentAuthor on Comment {
+    author {
+        ...userGeneric
+    }
+}

@@ -1,0 +1,15 @@
+#import "../../clips/fragments/clipDetails.graphql"
+#import "../../clips/fragments/clipGeneric.graphql"
+#import "../../clips/fragments/clipMedia.graphql"
+
+fragment projectAssets on Project {
+    assets {
+        ...clipDetails
+        ...clipGeneric
+        ...clipMedia
+        # we dont want to fech all project (...clipProject), just title
+        project {
+            title
+        }
+    }
+}

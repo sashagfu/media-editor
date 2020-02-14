@@ -1,0 +1,8 @@
+#import "../../users/fragments/userGeneric.graphql"
+
+fragment videoAuthor on Video {
+    authorId
+    author{
+        ...userGeneric
+    }
+}

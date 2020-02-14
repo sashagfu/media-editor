@@ -1,0 +1,24 @@
+#import "../../projects/fragments/projectGeneric.graphql"
+#import "../../projects/fragments/projectAssets.graphql"
+#import "../../projects/fragments/projectAuthor.graphql"
+#import "../../projects/fragments/projectComments.graphql"
+#import "../../projects/fragments/projectDetails.graphql"
+#import "../../projects/fragments/projectGeneric.graphql"
+#import "../../projects/fragments/projectStatus.graphql"
+#import "../../projects/fragments/projectTags.graphql"
+#import "../../projects/fragments/projectLikes.graphql"
+#import "../../projects/fragments/projectValue.graphql"
+
+fragment tagProjects on Tag {
+        projects {
+                ...projectAssets
+                ...projectAuthor
+                ...projectComments
+                ...projectDetails
+                ...projectGeneric
+                ...projectStatus
+                ...projectTags
+                ...projectLikes
+                ...projectValue
+        }
+}

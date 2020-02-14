@@ -1,0 +1,7 @@
+#import "../fragments/commentGeneric.graphql"
+
+mutation ($id: ID!) {
+    deleteComment(id: $id) {
+        ...commentGeneric
+    }
+}

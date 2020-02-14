@@ -1,0 +1,46 @@
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  deleteVideo(
+    id: ID!
+    projectId: ID!
+  ): Video @field(resolver: "App\\Http\\GraphQL\\Mutations\\VideoMutator@delete")
+
+}
+
+type Video {
+  id: ID
+  uuid: String
+  isPerformance: Boolean
+  authorId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\VideoType@authorId")
+  author: User
+  name: String
+  projectId: ID @field(resolver: "App\\Http\\GraphQL\\Types\\VideoType@projectId")
+  waveformData: String @field(resolver: "App\\Http\\GraphQL\\Types\\VideoType@waveformData")
+  filePath: String @field(resolver: "App\\Http\\GraphQL\\Types\\VideoType@filePath")
+  fileType: String @field(resolver: "App\\Http\\GraphQL\\Types\\VideoType@fileType")
+  thumbPath: String @field(resolver: "App\\Http\\GraphQL\\Types\\VideoType@thumbPath")
+  time: Float
+  spritePath: String @field(resolver: "App\\Http\\GraphQL\\Types\\VideoType@spritePath")
+  frames: Int
+  height: Int
+  width: Int
+}
+
+# Input types
+
+input VideoInput {
+  id: ID
+  uuid: String
+  isPerformance: Boolean
+  authorId: ID
+  author: User
+  name: String
+  projectId: ID
+  waveformData: String
+  filePath: String
+  fileType: String
+  thumbPath: String
+  time: Float
+  frames: Int
+}

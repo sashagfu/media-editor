@@ -1,0 +1,46 @@
+.me-tl-header-control {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  padding: 5px 0;
+  width: 150px;
+
+  &__panel {
+    fl-right();
+    padding: 0 12px;
+    width: 100%;
+  }
+
+  &__item {
+    fl-center();
+    background: transparent;
+    border: none;
+    color: $grey;
+    cursor: pointer;
+    font-size: 14px;
+    outline: none;
+    transition: all .3s;
+    width: 12px;
+
+    &--active {
+      color: $primary;
+    }
+
+    &--disabled {
+      color: $grey-light;
+      cursor: not-allowed;
+    }
+
+    & + & {
+      margin-left: 10px;
+    }
+
+    &--left {
+      justify-self: flex-start;
+    }
+    &--left-last {
+      margin-right: auto;
+    }
+  }
+}

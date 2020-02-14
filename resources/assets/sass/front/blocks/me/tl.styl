@@ -1,0 +1,56 @@
+.me-tl {
+  border-radius: 3px;
+  border: 1px solid $border;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &__header {
+    background-color: $grey-lighter;
+    display: flex;
+    height: 55px;
+    flex-direction: row;
+    //position: relative;
+    width: 100%;
+
+  }
+
+  &__body {
+    background-color: $white;
+    display: flex;
+    flex: 1;
+  }
+
+  &__body-controls {
+    background-color: $white;
+    border-right: 1px solid $border;
+    height: 100%;
+    width: 150px;
+    position: relative;
+  }
+
+  &__layers {
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__layers-frame {
+    position: relative;
+    overflow-x: scroll;
+    // Hide scroll bar
+    margin-bottom: -50px;
+    padding-bottom: 50px;
+    //display: flex;
+    //flex-direction: column;
+  }
+
+  .me-tl__layers-container {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+}

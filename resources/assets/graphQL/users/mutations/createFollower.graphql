@@ -1,0 +1,9 @@
+#import "../fragments/userGeneric.graphql"
+#import "../fragments/userFollow.graphql"
+
+mutation createFollower($userId: ID!) {
+    createFollower(userId: $userId) {
+        ...userGeneric
+        ...userFollow
+    }
+}

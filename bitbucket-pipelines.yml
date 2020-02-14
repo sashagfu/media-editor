@@ -1,0 +1,43 @@
+image: digitalidea/laravel-vue-php7-docker
+
+pipelines:
+    default:
+        - step:
+            caches:
+                - node
+                - composer
+                - pip
+            script:
+                - composer install --no-interaction --no-progress
+                - npm install
+                - npm run dev
+                - npm run build
+            services:
+                - redis
+                - database
+    branches:
+        dev:
+            - step:
+                caches:
+                    - node
+                    - composer
+                    - pip
+                script:
+                    - composer install --no-interaction --no-progress
+                    - npm install
+                    - npm run dev
+                    - npm run build
+                    - curl ${DEPLOY_HOOK_DEV}
+                services:
+                    - redis
+                    - database
+definitions:
+    services:
+        redis:
+            image: redis
+        database:
+            image: mysql
+            environment:
+                MYSQL_ROOT_PASSWORD: password
+                MYSQL_DATABASE: actionlime
+                MYSQL_USER: root

@@ -1,0 +1,7 @@
+#import "../fragments/threadGeneric.graphql"
+
+mutation createGroupThread($ids: [ID]!, $userId: ID) {
+    createGroupThread (ids: $ids) {
+        ...threadGeneric
+    }
+}

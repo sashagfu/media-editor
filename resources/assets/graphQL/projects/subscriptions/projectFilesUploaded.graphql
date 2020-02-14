@@ -1,0 +1,19 @@
+#import "../../audios/fragments/audioGeneric.graphql"
+#import "../../images/fragments/imageGeneric.graphql"
+#import "../../videos/fragments/videoGeneric.graphql"
+#import "../../videos/fragments/videoDetails.graphql"
+
+subscription projectFilesUploaded($projectId: ID!) {
+    projectFilesUploaded(projectId: $projectId) {
+        ... on Audio {
+            ...audioGeneric
+        }
+        ... on Video {
+            ...videoGeneric
+            ...videoDetails
+        }
+        ... on Image {
+            ...imageGeneric
+        }
+    }
+}

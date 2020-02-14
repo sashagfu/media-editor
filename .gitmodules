@@ -1,0 +1,3 @@
+[submodule "resources/assets/js/ext/vue-graphql-models"]
+	path = resources/assets/js/ext/vue-graphql-models
+	url = git@github.com:digitalideastudio/vue-graphql-models.git

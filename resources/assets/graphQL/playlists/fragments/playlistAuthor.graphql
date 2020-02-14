@@ -1,0 +1,7 @@
+#import "../../users/fragments/userGeneric.graphql"
+
+fragment playlistAuthor on Playlist {
+  author {
+    ...userGeneric
+  }
+}

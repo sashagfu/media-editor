@@ -1,0 +1,13 @@
+#import "./commentGeneric.graphql"
+#import "./commentDetails.graphql"
+#import "./commentAuthor.graphql"
+#import "./commentLikes.graphql"
+
+fragment commentReplies on Comment {
+    replies {
+        ...commentGeneric
+        ...commentDetails
+        ...commentAuthor
+        ...commentLikes
+    }
+}

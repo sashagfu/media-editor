@@ -1,0 +1,7 @@
+#import "../fragments/threadGeneric.graphql"
+
+subscription threadRead($userId: ID!, $threadId: ID!) {
+    threadRead(userId: $userId, threadId: $threadId) {
+        ...threadGeneric
+    }
+}

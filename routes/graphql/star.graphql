@@ -1,0 +1,17 @@
+
+extend type Subscription @group(middleware: ["auth:api"]) {
+  projectStarred(projectId: ID!): Star
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+
+  handleProjectStar(
+    id: ID!
+  ): User @field(resolver: "App\\Http\\GraphQL\\Mutations\\StarMutator@handleProjectStar")
+
+}
+
+type Star {
+  starable: Starable
+  user: User
+}

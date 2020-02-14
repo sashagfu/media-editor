@@ -1,0 +1,5 @@
+fragment clipMedia on Asset {
+    thumbPath,
+    spritePath,
+    waveformData,
+}

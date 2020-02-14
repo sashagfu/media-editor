@@ -1,0 +1,5 @@
+fragment tagGeneric on Tag {
+    id
+    uuid
+    name
+}

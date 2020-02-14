@@ -1,0 +1,7 @@
+#import "./messageGeneric.graphql"
+
+fragment threadMessages on Thread {
+    messages {
+        ...messageGeneric
+    }
+}

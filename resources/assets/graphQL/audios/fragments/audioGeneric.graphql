@@ -1,0 +1,10 @@
+fragment audioGeneric on Audio {
+    filePath
+    fileType
+    id
+    uuid
+    name
+    time
+    waveformData
+    projectId
+}
