@@ -79,7 +79,7 @@
     "apollo-link-context": "^1.0.8",
     "apollo-link-http": "^1.5.4",
     "autosize": "^4.0.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "bootstrap": "^4.3.1",
