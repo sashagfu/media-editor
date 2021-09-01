@@ -43,7 +43,7 @@
         "barryvdh/laravel-debugbar": "^2.2",
         "phpunit/phpunit": "~6.0",
         "facebook/webdriver": "^1.2",
-        "codeception/codeception": "^2.2",
+        "codeception/codeception": "^3.1",
         "phpunit/phpunit-selenium": "^4.1.0",
         "filp/whoops": "~2.0",
         "laravel/dusk": "^2.0"
